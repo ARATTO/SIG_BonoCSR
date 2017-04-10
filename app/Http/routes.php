@@ -53,6 +53,9 @@ Route::get('/admin', 'HomeController@index');
 * RUTAS RODRIGO
 *
 */
+Route::get('/prueba', function () {
+    return view('tactico.prueba');
+});
 
 /*
 *
