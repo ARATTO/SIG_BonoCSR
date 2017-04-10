@@ -33,4 +33,20 @@ class BitacoraAdultoMayor extends Model
     * Eliminar timestamps del modelo
     */
     public $timestamps = false;
+    /**
+    * Relaciones
+    */
+    public function beneficiarios()
+    {
+        return $this->belongsTo('App\Beneficiario');
+    }
+    public function promotores()
+    {
+        return $this->belongsTo('App\Promotor');
+    }
+    
+
+    /**
+    * Relaciones RETORNOS
+    */
 }

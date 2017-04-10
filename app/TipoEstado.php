@@ -32,4 +32,13 @@ class TipoEstado extends Model
     * Eliminar timestamps del modelo
     */
     public $timestamps = false;
+    /**
+    * Relaciones
+    */
+    
+    
+
+    /**
+    * Relaciones RETORNOS
+    */
 }

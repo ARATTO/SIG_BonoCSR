@@ -34,4 +34,16 @@ class Canton extends Model
     * Eliminar timestamps del modelo
     */
     public $timestamps = false;
+    /**
+    * Relaciones
+    */
+    
+    public function municipios()
+    {
+        return $this->belongsTo('App\Municipio');
+    }
+
+    /**
+    * Relaciones RETORNOS
+    */
 }

@@ -44,4 +44,26 @@ class Beneficiario extends Model
     * Eliminar timestamps del modelo
     */
     public $timestamps = false;
+    /**
+    * Relaciones
+    */
+    public function cantones()
+    {
+        return $this->belongsTo('App\Canton');
+    }
+    public function titulares()
+    {
+        return $this->belongsTo('App\Titular');
+    }
+    public function tipoEstados()
+    {
+        return $this->belongsTo('App\TipoEstado');
+    }
+    public function tipoBonos()
+    {
+        return $this->belongsTo('App\TipoBono');
+    }
+    /**
+    * Relaciones RETORNOS
+    */
 }

@@ -33,4 +33,16 @@ class Municipio extends Model
     * Eliminar timestamps del modelo
     */
     public $timestamps = false;
+    /**
+    * Relaciones
+    */
+    
+    public function departamentos()
+    {
+        return $this->belongsTo('App\Departamento');
+    }
+
+    /**
+    * Relaciones RETORNOS
+    */
 }

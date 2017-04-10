@@ -34,4 +34,16 @@ class Escuela extends Model
     * Eliminar timestamps del modelo
     */
     public $timestamps = false;
+    /**
+    * Relaciones
+    */
+    
+    public function cantones()
+    {
+        return $this->belongsTo('App\Canton');
+    }
+
+    /**
+    * Relaciones RETORNOS
+    */
 }
