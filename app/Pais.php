@@ -40,4 +40,8 @@ class Pais extends Model
     /**
     * Relaciones RETORNOS
     */
+    public function departamento()
+    {
+        return $this->hasMany('App\Departamento');
+    }
 }

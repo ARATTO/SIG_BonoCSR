@@ -66,4 +66,24 @@ class Beneficiario extends Model
     /**
     * Relaciones RETORNOS
     */
+    public function bitacoraAdultoMayor()
+    {
+        return $this->hasMany('App\BitacoraAdultoMayor');
+    }
+    public function bitacoraChildDiscapacitado()
+    {
+        return $this->hasMany('App\BitacoraChildDiscapacitado');
+    }
+    public function bitacoraChildEstudiante()
+    {
+        return $this->hasMany('App\BitacoraChildEstudiante');
+    }
+    public function bitacoraChildMenor()
+    {
+        return $this->hasMany('App\BitacoraChildMenor');
+    }
+    public function bitacoraChildEmbarazada()
+    {
+        return $this->hasMany('App\BitacoraEmbarazada');
+    }
 }

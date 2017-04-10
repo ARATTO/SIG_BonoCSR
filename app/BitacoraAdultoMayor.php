@@ -49,4 +49,8 @@ class BitacoraAdultoMayor extends Model
     /**
     * Relaciones RETORNOS
     */
+    public function bono()
+    {
+        return $this->hasMany('App\Bono');
+    }
 }

@@ -45,4 +45,12 @@ class Municipio extends Model
     /**
     * Relaciones RETORNOS
     */
+    public function canton()
+    {
+        return $this->hasMany('App\Canton');
+    }
+    public function centroDeSalud()
+    {
+        return $this->hasMany('App\CentroDeSalud');
+    }
 }

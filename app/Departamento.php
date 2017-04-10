@@ -45,4 +45,8 @@ class Departamento extends Model
     /**
     * Relaciones RETORNOS
     */
+    public function municipio()
+    {
+        return $this->hasMany('App\Municipio');
+    }
 }

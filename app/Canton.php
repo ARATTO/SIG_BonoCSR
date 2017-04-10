@@ -46,4 +46,13 @@ class Canton extends Model
     /**
     * Relaciones RETORNOS
     */
+
+    public function beneficiario()
+    {
+        return $this->hasMany('App\Beneficiario');
+    }
+    public function escuela()
+    {
+        return $this->hasMany('App\Escuela');
+    }
 }

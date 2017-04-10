@@ -43,4 +43,12 @@ class ONG extends Model
     /**
     * Relaciones RETORNOS
     */
+    public function promotor()
+    {
+        return $this->hasMany('App\Promotor');
+    }
+    public function user()
+    {
+        return $this->hasMany('App\User');
+    }
 }

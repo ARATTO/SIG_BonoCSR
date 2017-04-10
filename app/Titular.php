@@ -46,4 +46,8 @@ class Titular extends Model
     /**
     * Relaciones RETORNOS
     */
+    public function beneficiario()
+    {
+        return $this->hasMany('App\Beneficiario');
+    }
 }

@@ -46,4 +46,8 @@ class Escuela extends Model
     /**
     * Relaciones RETORNOS
     */
+    public function bitacoraChildEstudiante()
+    {
+        return $this->hasMany('App\BitacoraChildEstudiante');
+    }
 }

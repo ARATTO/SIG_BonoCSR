@@ -47,4 +47,12 @@ class CentroDeSalud extends Model
     /**
     * Relaciones RETORNOS
     */
+    public function bitacoraChildMenor()
+    {
+        return $this->hasMany('App\BitacoraChildMenor');
+    }
+    public function bitacoraChildEmbarazada()
+    {
+        return $this->hasMany('App\BitacoraEmbarazada');
+    }
 }
