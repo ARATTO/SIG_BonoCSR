@@ -8,10 +8,10 @@
         @if (! Auth::guest())
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{asset('/img/tanatos/l_ejpg.jpg')}}" class="img-circle" alt="User Image" />
+                    <img src="{{asset('/img/bono_csr/user8-128x128.jpg')}}" class="img-circle" alt="User Image" />
                 </div>
                 <div class="pull-left info">
-                    <p>{{ Auth::user()->nombres }}</p>
+                    <p>{{ Auth::user()->username }}</p>
                     <!-- Status -->
                     <a href="#"><i class="fa fa-circle text-success"></i> {{ trans('adminlte_lang::message.online') }}</a>
                 </div>

@@ -5,5 +5,5 @@
         {{ trans('adminlte_lang::message.seecode') }} <a href="#">{{ trans('tntmessage.CodigoFuente') }}</a>
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 1972 .</strong> {{ trans('adminlte_lang::message.createdby') }} <a href="#">{{ trans('tntmessage.LosEternos') }}</a>.
+    <strong>Copyright &copy; 1972 .</strong> {{ trans('adminlte_lang::message.createdby') }} <a href="#">{{ trans('tntmessage.LosEternos') }} en SIG</a>.
 </footer>

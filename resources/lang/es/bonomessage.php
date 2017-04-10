@@ -13,7 +13,7 @@ return [
     | Bienvenido rufian. GG IZI
     */
     'LosEternos'             => 'Los_Eternos',
-    'Tanatos'                => 'Tanato',
+    'BonoCSR'                => 'BonoCSR',
     'correoInstitucional'    => '@ues.edu.sv',
 
     /*
