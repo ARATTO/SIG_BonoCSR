@@ -15,5 +15,49 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*
+*
+* RUTAS GENERICAS
+*
+*/
 Route::auth();
-    Route::get('/admin', 'HomeController@index');
+Route::get('/admin', 'HomeController@index');
+/*
+*
+* RUTAS GENERICAS
+*
+*/
+//////////////////////////////////////////////////////////////////////////////////
+/*
+*
+* RUTAS MOTTO
+*
+*/
+/*
+        * Inicio Rutas para User
+        */
+        
+        /*
+        * Fin Rutas para User
+        */
+/*
+*
+* FIN RUTAS MOTTO
+*
+*/
+
+//////////////////////////////////////////////////////////////////////////////////
+
+/*
+*
+* RUTAS RODRIGO
+*
+*/
+
+/*
+*
+* FIN RUTAS RODRIGO
+*
+*/
+
+//////////////////////////////////////////////////////////////////////////////////
