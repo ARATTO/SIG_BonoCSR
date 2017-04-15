@@ -11,6 +11,12 @@ class PaisTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Pais::class,20)->create();
-    }
+        DB::table('pais')->insert([
+        	'id' => 1,
+        	'codigo' => '503',
+        	'nombre' => 'El Salvador'
+
+        	]);
+        	
+    } 
 }

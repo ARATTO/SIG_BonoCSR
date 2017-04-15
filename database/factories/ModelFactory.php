@@ -21,11 +21,5 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 
-$factory->define(App\Pais::class, function (Faker\Generator $faker) {
-    return [
-        'id' => $faker->unique()->randomNumber,
-        'codigo' => $faker->unique()->countryCode,
-        'nombre' => $faker->unique()->country,
-       
-    ];
-});
+
+
