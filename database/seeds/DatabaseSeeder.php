@@ -21,5 +21,14 @@ class DatabaseSeeder extends Seeder
         $this->call(CantonTableSeeder::class);
         $this->call(EscuelaTableSeeder::class);
         $this->call(CenSaludTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
+        $this->call(BeneficiarioTableSeeder::class);
+        $this->call(PromoTableSeeder::class);
+        $this->call(ChildMenTableSeeder::class);
+        $this->call(EmbarazadaTableSeeder::class);
+        $this->call(AdultMayorTableSeeder::class);
+        $this->call(ChildDiscapTableSeeder::class);
+        $this->call(ChildEstudianteTableSeeder::class);
+        $this->call(BonoTableSeeder::class);
     }
 }
