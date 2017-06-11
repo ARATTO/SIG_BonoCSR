@@ -57,6 +57,21 @@ Route::get('/prueba', function () {
     return view('tactico.prueba');
 });
 
+
+
+ Route::get('/etl', [
+    'uses' => 'EtlController@index', 
+    'as'    => 'etl'
+            ]);
+
+
+  Route::post('/cargarDatos', [
+    'uses' => 'EtlController@store', 
+    'as'    => 'cargarDatos'
+            ]);
+
+
+
 /*
 *
 * FIN RUTAS RODRIGO
