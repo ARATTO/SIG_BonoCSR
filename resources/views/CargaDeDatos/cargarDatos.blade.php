@@ -36,7 +36,7 @@
 
 				{!! Form::open(['action' => 'EtlController@store','class'=>'form-horizontal','enctype'=>'multipart/form-data' ]) !!}
 			          
-
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				      <div class="box-body">
    

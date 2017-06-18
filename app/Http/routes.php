@@ -59,13 +59,13 @@ Route::get('/prueba', function () {
 
 
 
- Route::get('/etl', [
+ Route::get('etl', [
     'uses' => 'EtlController@index', 
     'as'    => 'etl'
             ]);
 
 
-  Route::post('/cargarDatos', [
+  Route::post('cargarDatos', [
     'uses' => 'EtlController@store', 
     'as'    => 'cargarDatos'
             ]);

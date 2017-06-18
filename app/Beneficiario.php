@@ -22,7 +22,7 @@ class Beneficiario extends Model
         'fechaNacimiento',
         'codigo',
         'dineroInvertido',
-        'genero'
+        'genero',
         'descripcionDiscapacidad',
         /*FK*/
         'Canton_id',
