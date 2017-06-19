@@ -75,11 +75,12 @@
                     </div>
 
         
-                 <div class="panel-body" id="guardar" style="display: none;">
 
-                    {!! Form::submit('Guardar', ['class'=> 'btn-primary' ]) !!}  
-                </div>
-                  
+
+                <div class="form-group form-inline" id="guardar" style="display: none;">
+                    <h3><span class="label label-danger">{{ trans('') }}</span><h3>
+                    <button type="submit" class="btn btn-success btn-lg"> {{trans('Procesar')}} </button>
+                </div>                  
 
 
             </div>           
@@ -110,7 +111,7 @@
                 var fecha = (((fecha3/1000.0)/60.0)/60)/24.0;
                 
 
-                if (fecha>28) {
+                if (fecha>28    ) {
                     document.getElementById('guardar').style.display = 'block';
                     
                 }else{
