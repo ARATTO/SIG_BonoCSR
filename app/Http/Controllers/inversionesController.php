@@ -54,9 +54,11 @@ class inversionesController extends Controller
         }
     }
 
-    public function store(Requests $reques){
-
-    }
+    public function store(Request $request){
+        
+        
+        dd($request->all());
+    }   
 
 
 }

@@ -35,7 +35,7 @@
                     <div class="input-group has-info form-inline">
                             <span class="input-group-addon" id="primernombre">Departamento</span>
                                 @if($departamento != null)
-                                    <select class="form-control" name="idhospital" id="departamento" data-placeholder="Seleccione el Departamento..."  >
+                                    <select class="form-control" name="iddepartamento" id="departamento" data-placeholder="Seleccione el Departamento..."  >
                                         @foreach ($departamento as $mun)
                                             <option value="{{ $mun->id }}">{{$mun->nombre}}</option>
                                         @endforeach
