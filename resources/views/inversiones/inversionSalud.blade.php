@@ -52,6 +52,36 @@
                             <span class="input-group-addon" id="segundonombre">Canton</span>
                                 {!! Form::select('canton',['placeholder'=>'Selecciona'],null,['id'=>'canton','class'=>'form-control']) !!}                               
                     </div>
+
+                    <br>
+                    <br>
+                    <br>
+                    <h3>
+                     <span class="label label-primary">{{ trans('Seleccione el Periodo') }}</span>
+                     </h3>
+                     <hr>
+
+                    <div class="input-group has-info form-inline">
+                            <span class="input-group-addon" id="primernombre">Fecha de Inicio</span>
+
+                                        
+                        <input type="date" class="form-control" id="fechaInicio" name="fechaInicio" data-provide="datepicker" placeholder="mes/dia/año" required="true" data-date-format="yyyy-mm-dd" onchange="compararFechas()"><br>
+
+
+
+                            <span class="input-group-addon" id="segundonombre">Fecha Fin</span>
+                                                   
+                        <input type="date" class="form-control" id="fechaFin" name="fechaFin" data-provide="datepicker" placeholder="mes/dia/año" required="true" data-date-format="yyyy-mm-dd" onchange="compararFechas()"><br>  
+                    </div>
+
+        
+                 <div class="panel-body" id="guardar" style="display: none;">
+
+                    {!! Form::submit('Guardar', ['class'=> 'btn-primary' ]) !!}  
+                </div>
+                  
+
+
             </div>           
 			{!!Form::close()!!}			
 					</div>
@@ -61,3 +91,34 @@
 	</div>
 	</section><!-- /.content -->
 @endsection
+
+<script>
+        $('.datepicker').datepicker({
+        startDate: '-3d'
+        });
+
+
+            function compararFechas() {
+            var finicio = document.getElementById('fechaInicio').value;
+            var ffin= document.getElementById('fechaFin').value;
+
+                var fecha1 = new Date(finicio);
+                var fecha2 = new Date(ffin);
+
+                var fecha3 = fecha2 - fecha1;
+
+                var fecha = (((fecha3/1000.0)/60.0)/60)/24.0;
+                
+
+                if (fecha>28) {
+                    document.getElementById('guardar').style.display = 'block';
+                    
+                }else{
+                    document.getElementById('guardar').style.display = 'none';
+                }
+                
+        }
+
+    </script>
+    
+</script>
