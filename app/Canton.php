@@ -55,4 +55,9 @@ class Canton extends Model
     {
         return $this->hasMany('App\Escuela');
     }
+
+
+        public static function cantones($id){
+        return Canton::where('Municipio_id',$id)->get();
+    }
 }

@@ -42,15 +42,22 @@ class Municipio extends Model
         return $this->belongsTo('App\Departamento');
     }
 
+
+
     /**
     * Relaciones RETORNOS
     */
     public function canton()
     {
-        return $this->hasMany('App\Canton');
+        return $this->hasMany('App\Canton','Municipio_id');
     }
     public function centroDeSalud()
     {
         return $this->hasMany('App\CentroDeSalud');
+    }
+
+
+    public static function municipios($id){
+        return Municipio::where('Departamento_id',$id)->get();
     }
 }

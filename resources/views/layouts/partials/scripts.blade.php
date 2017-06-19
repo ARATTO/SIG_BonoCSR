@@ -87,6 +87,24 @@
       
 </script>
 
+<script>
+      // defaults
+
+      $("#chosen-select").chosen({
+             no_results_text: "Oops, No encontramos nada como:  ",
+             
+      });
+      $("#chosen-select_").chosen({
+             no_results_text: "Oops, No encontramos nada como:  ",
+             width: "100%",
+      });
+
+      $("#chosen-borrar").chosen({
+             no_results_text: "Oops, No encontramos nada como:  ",
+             width: "100%",
+      });
+</script>
+
 <!-- Include Plugin FileShido -->
 <script>
       // defaults
@@ -96,19 +114,37 @@
 </script>
 
 <!-- Include Plugin Chosen -->
-<script>
-      // defaults
-      $("#chosen-select").chosen({
-             no_results_text: "Oops, No encontramos nada como:  ",
-             width: "100%",
-      });
-      $("#chosen-select_").chosen({
-             no_results_text: "Oops, No encontramos nada como:  ",
-             width: "100%",
-      });
-      $("#chosen-borrar").chosen({
-             no_results_text: "Oops, No encontramos nada como:  ",
-             width: "100%",
-      });
+
+
+<script type="text/javascript">
+
+
+$("#departamento").change(event => {
+  $.get(`municipioInversiones/${event.target.value}`, function(res, sta){
+      
+      $("municipio").empty();
+
+      $('#municipio').html('');
+
+      res.forEach(element => {
+        $("#municipio").append(`<option value=${element.id}> ${element.nombre} </option>`);
+        });
+    });
+});
+
+
+$("#municipio").change(event => {
+  $.get(`cantonInversiones/${event.target.value}`, function(res, sta){
+      console.log(res);
+      $("canton").empty();
+        $('#canton').html('');
+      res.forEach(element => {
+        $("#canton").append(`<option value=${element.id}> ${element.nombre} </option>`);
+        });
+    });
+});
+
+
 </script>
 
+     

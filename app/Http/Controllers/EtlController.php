@@ -95,7 +95,7 @@ class EtlController extends Controller
 
 
                             } catch(\Illuminate\Database\QueryException $ex){
-                                dd($ex);
+                                
                                 Flash::Danger("Ocurrio un error con la ong en la fila: " .$contador. " por favor verifique dichos datos");
 
                                 return redirect()->route('etl');
@@ -124,7 +124,7 @@ class EtlController extends Controller
                             $pais->nombre = $fila->nombre_pais;
                             $pais->save();
                             } catch(\Illuminate\Database\QueryException $ex){
-                                dd($ex);
+                                
                                 Flash::Danger("Ocurrio un error con el pais en la fila: " .$contador. " por favor verifique dichos datos");
                            
                                 return redirect()->route('etl');
@@ -156,7 +156,7 @@ class EtlController extends Controller
 
                             } catch(\Illuminate\Database\QueryException $ex){
 
-    dd($ex);
+    
                                 Flash::Danger("Ocurrio un error con el departamento en la fila: " .$contador. " por favor verifique dichos datos");
 
                                 return redirect()->route('etl');
@@ -191,7 +191,7 @@ class EtlController extends Controller
 
                             } catch(\Illuminate\Database\QueryException $ex){
 
-    dd($ex);
+    
                                 Flash::Danger("Ocurrio un error con el municipio en la fila: " .$contador. " por favor verifique dichos datos");
 
                                 return redirect()->route('etl');
@@ -222,7 +222,7 @@ class EtlController extends Controller
                                $canton->save();
 
                             } catch(\Illuminate\Database\QueryException $ex){
-dd($ex);
+
     
                                 Flash::Danger("Ocurrio un error con el canton en la fila: " .$contador. " por favor verifique dichos datos");
 
@@ -257,7 +257,7 @@ dd($ex);
 
 
                             } catch(\Illuminate\Database\QueryException $ex){
-dd($ex);
+
     
                                 Flash::Danger("Ocurrio un error con el titular en la fila: " .$contador. " por favor verifique dichos datos");
 
@@ -288,7 +288,7 @@ dd($ex);
                            $tipoEstado->save();
 
                             } catch(\Illuminate\Database\QueryException $ex){
-dd($ex);
+
     
                                 Flash::Danger("Ocurrio un error con el tipo de estado en la fila: " .$contador. " por favor verifique dichos datos");
 
@@ -320,7 +320,7 @@ dd($ex);
 
                             } catch(\Illuminate\Database\QueryException $ex){
 
-    dd($ex);
+    
                                 Flash::Danger("Ocurrio un error con el tipo de bono en la fila: " .$contador. " por favor verifique dichos datos");
 
                                 return redirect()->route('etl');
@@ -361,7 +361,7 @@ dd($ex);
 
                             } catch(\Illuminate\Database\QueryException $ex){
 
-    dd($ex);
+    
                                 Flash::Danger("Ocurrio un error con el beneficiario en la fila: " .$contador. " por favor verifique dichos datos");
 
                                 return redirect()->route('etl');
@@ -397,7 +397,7 @@ dd($ex);
 
 
                             } catch(\Illuminate\Database\QueryException $ex){
-dd($ex);
+
     
                                 Flash::Danger("Ocurrio un error con la escuela en la fila: " .$contador. " por favor verifique dichos datos");
 
@@ -435,7 +435,7 @@ dd($ex);
                            }
 
                             } catch(\Illuminate\Database\QueryException $ex){
-dd($ex);
+
     
                                 Flash::Danger("Ocurrio un error con el centroDeSalud en la fila: " .$contador. " por favor verifique dichos datos");
 
@@ -478,7 +478,7 @@ dd($ex);
 
                             } catch(\Illuminate\Database\QueryException $ex){
 
-    dd($ex);
+    
                                 Flash::Danger("Ocurrio un error con el promotor en la fila: " .$contador. " por favor verifique dichos datos");
 
                                 return redirect()->route('etl');
@@ -516,7 +516,7 @@ dd($ex);
 
                             } catch(\Illuminate\Database\QueryException $ex){
 
-    dd($ex);
+    
                                 Flash::Danger("Ocurrio un error con la bitacora de un niño con capacidades especiales en la fila: " .$contador. " por favor verifique dichos datos");
 
                                 return redirect()->route('etl');
@@ -558,7 +558,7 @@ dd($ex);
                                }
      
                             } catch(\Illuminate\Database\QueryException $ex){
-dd($ex);
+
                                 Flash::Danger("Ocurrio un error con la bitacora de un niño bono por educacion en la fila: " .$contador. " por favor verifique dichos datos");
 
                                 return redirect()->route('etl');
@@ -598,7 +598,7 @@ dd($ex);
                                }
      
                             } catch(\Illuminate\Database\QueryException $ex){
-dd($ex);
+
                                 Flash::Danger("Ocurrio un error con la bitacora de un niño menor de 5 años en la fila: " .$contador. " por favor verifique dichos datos");
 
                                 return redirect()->route('etl');
@@ -640,7 +640,7 @@ dd($ex);
                                }
      
                             } catch(\Illuminate\Database\QueryException $ex){
-dd($ex);
+
                                 Flash::Danger("Ocurrio un error con la bitacora de una embarazada en la fila: " .$contador. " por favor verifique dichos datos");
 
                                 return redirect()->route('etl');
@@ -675,7 +675,7 @@ dd($ex);
                                }
      
                             } catch(\Illuminate\Database\QueryException $ex){
-dd($ex);
+
                                 Flash::Danger("Ocurrio un error con la bitacora de un adulto mayor en la fila: " .$contador. " por favor verifique dichos datos");
 
                                 return redirect()->route('etl');
@@ -733,7 +733,7 @@ dd($ex);
                                }
      
                             } catch(\Illuminate\Database\QueryException $ex){
-                                dd($ex);
+                                
                                 Flash::Danger("Ocurrio un error con la bitacora de un adulto mayor en la fila: " .$contador. " por favor verifique dichos datos");
 
                                 return redirect()->route('etl');

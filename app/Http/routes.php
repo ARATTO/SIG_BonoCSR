@@ -70,6 +70,22 @@ Route::get('/prueba', function () {
     'as'    => 'cargarDatos'
             ]);
 
+  Route::get('inversion',[
+    'uses' => 'inversionesController@index',
+    'as' => 'seleccionarDatos'
+    ]);
+
+
+
+ Route::get('municipioInversiones/{id}','inversionesController@municipioInversiones');
+
+Route::get('cantonInversiones/{id}','inversionesController@cantonInversiones');
+
+  Route::post('datos', [
+    'uses' => 'inversionesController@store', 
+    'as'    => 'datos'
+            ]);
+
 
 
 /*
