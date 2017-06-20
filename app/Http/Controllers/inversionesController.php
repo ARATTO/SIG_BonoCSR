@@ -9,6 +9,8 @@ use Laracasts\Flash\Flash;
 use App\Departamento;
 use App\Canton;
 use App\Municipio;
+use App\Bono;
+use App\Beneficiario;
 
 class inversionesController extends Controller
 {
@@ -56,8 +58,21 @@ class inversionesController extends Controller
 
     public function store(Request $request){
         
+        $beneficiario = Beneficiario::where('canton_id',$request->canton)
+        ->whereRAW("(tipoBono_id = 1 or tipoBono_id =2)")->get();
+
+
+
+        $beneficiario->each(function($beneficiario){
+            
+            $beneficiario->bitacoraChildDiscapacitado;
+            $beneficiario->bitacoraChildEstudiante;
+            $beneficiario->bitacoraChildMenor;
+            $beneficiario->bitacoraChildEmbarazada;
+      
+        });
         
-        dd($request->all());
+        dd($beneficiario);
     }   
 
 

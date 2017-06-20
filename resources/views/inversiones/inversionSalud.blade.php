@@ -35,7 +35,7 @@
                     <div class="input-group has-info form-inline">
                             <span class="input-group-addon" id="primernombre">Departamento</span>
                                 @if($departamento != null)
-                                    <select class="form-control" name="iddepartamento" id="departamento" data-placeholder="Seleccione el Departamento..."  >
+                                    <select class="form-control" name="iddepartamento" id="departamento" data-placeholder="Seleccione el Departamento..."  required>
                                         @foreach ($departamento as $mun)
                                             <option value="{{ $mun->id }}">{{$mun->nombre}}</option>
                                         @endforeach
@@ -46,11 +46,11 @@
                                 @endif           
                   
                             <span class="input-group-addon" id="segundonombre">Municipio</span>
-                                {!! Form::select('municipio',['placeholder'=>'Selecciona'],null,['id'=>'municipio','class'=>'form-control']) !!}
+                                {!! Form::select('municipio',[null],null,['id'=>'municipio','class'=>'form-control','required'=>'true','placeholder'=>'Seleccione un Municipio']) !!}
 
 
                             <span class="input-group-addon" id="segundonombre">Canton</span>
-                                {!! Form::select('canton',['placeholder'=>'Selecciona'],null,['id'=>'canton','class'=>'form-control']) !!}                               
+                                {!! Form::select('canton',[null],null,['id'=>'canton','class'=>'form-control','required'=>'true','placeholder'=>'Seleccione un canton']) !!}              
                     </div>
 
                     <br>
@@ -77,9 +77,9 @@
         
 
 
-                <div class="form-group form-inline" id="guardar" style="display: none;">
+                <div class="form-group form-inline">
                     <h3><span class="label label-danger">{{ trans('') }}</span><h3>
-                    <button type="submit" class="btn btn-success btn-lg"> {{trans('Procesar')}} </button>
+                    <button id="guardar" disabled type="submit" class="btn btn-success btn-lg"> {{trans('Procesar')}} </button>
                 </div>                  
 
 
@@ -112,10 +112,10 @@
                 
 
                 if (fecha>28    ) {
-                    document.getElementById('guardar').style.display = 'block';
+                    document.getElementById('guardar').disabled= false;
                     
                 }else{
-                    document.getElementById('guardar').style.display = 'none';
+                    document.getElementById('guardar').disabled = true;
                 }
                 
         }

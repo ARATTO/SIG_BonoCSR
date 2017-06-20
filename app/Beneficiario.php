@@ -68,22 +68,22 @@ class Beneficiario extends Model
     */
     public function bitacoraAdultoMayor()
     {
-        return $this->hasMany('App\BitacoraAdultoMayor');
+        return $this->hasMany('App\BitacoraAdultoMayor','Beneficiario_id');
     }
     public function bitacoraChildDiscapacitado()
     {
-        return $this->hasMany('App\BitacoraChildDiscapacitado');
+        return $this->hasMany('App\BitacoraChildDiscapacitado','Beneficiario_id');
     }
     public function bitacoraChildEstudiante()
     {
-        return $this->hasMany('App\BitacoraChildEstudiante');
+        return $this->hasMany('App\BitacoraChildEstudiante','Beneficiario_id');
     }
     public function bitacoraChildMenor()
     {
-        return $this->hasMany('App\BitacoraChildMenor');
+        return $this->hasMany('App\BitacoraChildMenor','Beneficiario_id');
     }
     public function bitacoraChildEmbarazada()
     {
-        return $this->hasMany('App\BitacoraEmbarazada');
+        return $this->hasMany('App\BitacoraEmbarazada','Beneficiario_id');
     }
 }
