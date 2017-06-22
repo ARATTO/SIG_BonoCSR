@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -172,6 +172,10 @@ return [
         GeneaLabs\Bones\Flash\BonesFlashServiceProvider::class,
         /*Paquete de Flash de Redirect con Clase*/
 
+        /*Paquete para la importacion de archivos de excel*/
+        'Maatwebsite\Excel\ExcelServiceProvider',
+        /*Paquete para la importacion de archivos de excel*/
+
     ],
 
     /*
@@ -226,6 +230,10 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         /*Paquete HTML-FORM*/
+
+        /*Paquete excel*/
+        'Excel' => 'Maatwebsite\Excel\Facades\Excel',
+        /*Paquete excel*/
     ],
 
 ];

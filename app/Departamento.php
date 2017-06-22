@@ -33,4 +33,20 @@ class Departamento extends Model
     * Eliminar timestamps del modelo
     */
     public $timestamps = false;
+    /**
+    * Relaciones
+    */
+    
+    public function paises()
+    {
+        return $this->belongsTo('App\Pais');
+    }
+
+    /**
+    * Relaciones RETORNOS
+    */
+    public function municipio()
+    {
+        return $this->hasMany('App\Municipio');
+    }
 }

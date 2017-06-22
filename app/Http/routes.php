@@ -15,5 +15,83 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*
+*
+* RUTAS GENERICAS
+*
+*/
 Route::auth();
-    Route::get('/admin', 'HomeController@index');
+Route::get('/admin', 'HomeController@index');
+/*
+*
+* RUTAS GENERICAS
+*
+*/
+//////////////////////////////////////////////////////////////////////////////////
+/*
+*
+* RUTAS MOTTO
+*
+*/
+/*
+        * Inicio Rutas para User
+        */
+        
+        /*
+        * Fin Rutas para User
+        */
+/*
+*
+* FIN RUTAS MOTTO
+*
+*/
+
+//////////////////////////////////////////////////////////////////////////////////
+
+/*
+*
+* RUTAS RODRIGO
+*
+*/
+Route::get('/prueba', function () {
+    return view('tactico.prueba');
+});
+
+
+
+ Route::get('etl', [
+    'uses' => 'EtlController@index', 
+    'as'    => 'etl'
+            ]);
+
+
+  Route::post('cargarDatos', [
+    'uses' => 'EtlController@store', 
+    'as'    => 'cargarDatos'
+            ]);
+
+  Route::get('inversion',[
+    'uses' => 'inversionesController@index',
+    'as' => 'seleccionarDatos'
+    ]);
+
+
+
+ Route::get('municipioInversiones/{id}','inversionesController@municipioInversiones');
+
+Route::get('cantonInversiones/{id}','inversionesController@cantonInversiones');
+
+  Route::post('datos', [
+    'uses' => 'inversionesController@store', 
+    'as'    => 'datos'
+            ]);
+
+
+
+/*
+*
+* FIN RUTAS RODRIGO
+*
+*/
+
+//////////////////////////////////////////////////////////////////////////////////

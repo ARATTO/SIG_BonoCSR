@@ -33,4 +33,17 @@ class TipoBono extends Model
     * Eliminar timestamps del modelo
     */
     public $timestamps = false;
+    /**
+    * Relaciones
+    */
+    
+    
+
+    /**
+    * Relaciones RETORNOS
+    */
+    public function beneficiario()
+    {
+        return $this->hasMany('App\Beneficiario');
+    }
 }

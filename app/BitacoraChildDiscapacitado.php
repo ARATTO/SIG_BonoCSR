@@ -16,7 +16,7 @@ class BitacoraChildDiscapacitado extends Model
         'id',
         'descripcion', 
         /*FK*/
-        'Promoter_id',
+        'Promotor_id',
         'Beneficiario_id',
     ];
 
@@ -33,4 +33,24 @@ class BitacoraChildDiscapacitado extends Model
     * Eliminar timestamps del modelo
     */
     public $timestamps = false;
+    /**
+    * Relaciones
+    */
+    
+    public function beneficiarios()
+    {
+        return $this->belongsTo('App\Beneficiario');
+    }
+    public function promotores()
+    {
+        return $this->belongsTo('App\Promotor');
+    }
+
+    /**
+    * Relaciones RETORNOS
+    */
+    public function bono()
+    {
+        return $this->hasMany('App\Bono');
+    }
 }

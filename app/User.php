@@ -32,4 +32,16 @@ class User extends Authenticatable
     * Eliminar timestamps del modelo
     */
     public $timestamps = false;
+    /**
+    * Relaciones
+    */
+    
+    public function ong()
+    {
+        return $this->belongsTo('App\ONG');
+    }
+
+    /**
+    * Relaciones RETORNOS
+    */
 }

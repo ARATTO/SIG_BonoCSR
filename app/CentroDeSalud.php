@@ -35,4 +35,24 @@ class CentroDeSalud extends Model
     * Eliminar timestamps del modelo
     */
     public $timestamps = false;
+    /**
+    * Relaciones
+    */
+    
+    public function municipios()
+    {
+        return $this->belongsTo('App\Municipio');
+    }
+
+    /**
+    * Relaciones RETORNOS
+    */
+    public function bitacoraChildMenor()
+    {
+        return $this->hasMany('App\BitacoraChildMenor');
+    }
+    public function bitacoraChildEmbarazada()
+    {
+        return $this->hasMany('App\BitacoraEmbarazada');
+    }
 }
