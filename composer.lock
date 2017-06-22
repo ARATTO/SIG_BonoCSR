@@ -1476,7 +1476,11 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/4054a102470665451108f9b59305c79176ef98f0",
                 "reference": "4054a102470665451108f9b59305c79176ef98f0",
+<<<<<<< HEAD
 >>>>>>> bbaf77a46e37dae5da64c2cec21eb118e95d4a26
+=======
+>>>>>>> 2da15eeb2743a9e58a6990c17183f50c225dc7db
+>>>>>>> 8df6180bcd1ceeb6fc5aaae3bbb4638abff0a9c3
                 "shasum": ""
             },
             "require": {
@@ -1530,7 +1534,11 @@
             "time": "2017-04-04T07:26:27+00:00"
 =======
             "time": "2017-06-04T18:15:29+00:00"
+<<<<<<< HEAD
 >>>>>>> bbaf77a46e37dae5da64c2cec21eb118e95d4a26
+=======
+>>>>>>> 2da15eeb2743a9e58a6990c17183f50c225dc7db
+>>>>>>> 8df6180bcd1ceeb6fc5aaae3bbb4638abff0a9c3
         },
         {
             "name": "symfony/finder",
@@ -3613,7 +3621,11 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/yaml/zipball/9752a30000a8ca9f4b34b5227d15d0101b96b063",
                 "reference": "9752a30000a8ca9f4b34b5227d15d0101b96b063",
+<<<<<<< HEAD
 >>>>>>> bbaf77a46e37dae5da64c2cec21eb118e95d4a26
+=======
+>>>>>>> 2da15eeb2743a9e58a6990c17183f50c225dc7db
+>>>>>>> 8df6180bcd1ceeb6fc5aaae3bbb4638abff0a9c3
                 "shasum": ""
             },
             "require": {
@@ -3706,7 +3718,11 @@
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "time": "2016-09-20T12:50:39+00:00"
+<<<<<<< HEAD
 >>>>>>> bbaf77a46e37dae5da64c2cec21eb118e95d4a26
+=======
+>>>>>>> 2da15eeb2743a9e58a6990c17183f50c225dc7db
+>>>>>>> 8df6180bcd1ceeb6fc5aaae3bbb4638abff0a9c3
         },
         {
             "name": "webmozart/assert",
