@@ -51,6 +51,6 @@ class BitacoraAdultoMayor extends Model
     */
     public function bono()
     {
-        return $this->hasMany('App\Bono');
+        return $this->hasMany('App\Bono','BitacoraAdultoMayor_id');
     }
 }

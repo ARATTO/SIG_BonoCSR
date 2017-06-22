@@ -61,6 +61,6 @@ class BitacoraChildMenor extends Model
     */
     public function bono()
     {
-        return $this->hasMany('App\Bono');
+        return $this->hasMany('App\Bono','BitacoraChildMenor_id');
     }
 }

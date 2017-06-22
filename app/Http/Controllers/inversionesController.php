@@ -66,9 +66,32 @@ class inversionesController extends Controller
         $beneficiario->each(function($beneficiario){
             
             $beneficiario->bitacoraChildDiscapacitado;
+            if(count($beneficiario->bitacoraChildDiscapacitado)>0){
+                foreach ($beneficiario->bitacoraChildDiscapacitado as $value) {
+                    $value->bono;    
+                }                
+            }
+
             $beneficiario->bitacoraChildEstudiante;
+            if(count($beneficiario->bitacoraChildEstudiante)>0){
+                foreach ($beneficiario->bitacoraChildEstudiante as $value) {
+                    $value->bono;
+                }
+            }
+
             $beneficiario->bitacoraChildMenor;
+            if(count($beneficiario->bitacoraChildMenor)>0){
+                foreach ($beneficiario->bitacoraChildMenor as $value) {
+                    $value->bono;
+                }
+            }
+
             $beneficiario->bitacoraChildEmbarazada;
+            if(count($beneficiario->bitacoraChildEmbarazada)>0){
+                foreach ($beneficiario->bitacoraChildEmbarazada as $value) {
+                    $value->bono;
+                }
+            }
       
         });
         

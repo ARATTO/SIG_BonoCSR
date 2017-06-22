@@ -14,6 +14,13 @@
                             <li><a href="#">{{ trans('bonomessage.CrearUsuario') }}</a></li>
                         </ul>
                     </li>
+                    <li class="treeview">
+                        <a href="#"><i class='fa fa-link'></i> <span>{{ trans('DATOS') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{route('etl')}}">{{ trans('Cargar Datos') }}</a></li>
+                        </ul>
+                    </li>                    
+                    
                     <!-- Fin Menu Usuario -->
                 </ul>
             </li>

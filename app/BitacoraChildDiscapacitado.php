@@ -51,6 +51,6 @@ class BitacoraChildDiscapacitado extends Model
     */
     public function bono()
     {
-        return $this->hasMany('App\Bono');
+        return $this->hasMany('App\Bono','BitacoraChildDiscapacitado_id');
     }
 }

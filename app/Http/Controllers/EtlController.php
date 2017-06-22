@@ -77,7 +77,8 @@ class EtlController extends Controller
                 //dd($hoja);
                        //$f=1;
                 $hoja->each(function($fila,$f) {
-                   //echo " N° de fila: ".($f+2)."<br>";//.$fila;
+                   //echo " N° de fila: ".($f+2)."<br>".$fila;
+
                     $contador = 2;
 
                 /*ANALIZANDO TABLA ONG*/
@@ -690,7 +691,6 @@ class EtlController extends Controller
 
                 $bono= Bono::where('id', $fila->id_bono  )->get();
 
-
                     foreach ($bono as $key) {
                        $bono = $key;
                     }
@@ -699,7 +699,7 @@ class EtlController extends Controller
                     if(count($bono)==0){
                         try{
 
-                              if($fila->id_bono    != null && $fila->id_bono>0){
+                              if($fila->id_bono != null && $fila->id_bono>0){
                                        $bono = new Bono();
                                        $bono->id =  $fila->id_bono  ;
                                        $bono->dineroacumulado= $fila->dineroacumulado_bono     ;
@@ -707,31 +707,42 @@ class EtlController extends Controller
                                        $bono->fechafinperiodo= $fila->fechafinperiodo_bono->format('Y-m-d')     ;
                                        $bono->periodofinalizo= $fila->periodofinalizo_bono;
 
-                                       if ( $fila->bitacoraembarazada_id_bono == 0) {
+                                       if ( $fila->bitacoraembarazada_id_bono== 0) {
                                            $bono->bitacoraembarazada_id= null ;
+                                       }else{
+                                        $bono->bitacoraembarazada_id = $fila->bitacoraembarazada_id_bono;
                                        }
 
-                                       if ( $fila->bitacorachildmenor_id_bono == 0) {
+
+                                       if ( $fila->bitacorachildmenor_id_bono== 0) {
                                            $bono->bitacorachildmenor_id= null;
+                                       }else{
+                                             $bono->bitacorachildmenor_id = $fila->bitacorachildmenor_id_bono;
                                        }
 
                                        if ( $fila->bitacoraadultomayor_id_bono== 0) {
                                             $bono->bitacoraadultomayor_id= null;
+                                       }else{
+                                            $bono->bitacoraadultomayor_id=  $fila->bitacoraadultomayor_id_bono;
                                        }
 
                                        if ($fila->bitacorachilddiscapacitado_id_bono== 0) {
                                             $bono->bitacorachilddiscapacitado_id= null  ;
+                                       }else{
+                                            $bono->bitacorachilddiscapacitado_id= $fila->bitacorachilddiscapacitado_id_bono;
                                        }
                                        
-                                        if ($bono->bitacorachildestudiante_id== 0) {
+                                        if ($fila->bitacorachildestudiante_id_bono== 0) {
                                            $bono->bitacorachildestudiante_id= null;
+                                       }else{
+                                            $bono->bitacorachildestudiante_id=$fila->bitacorachildestudiante_id_bono;
                                        }
 
  
                                        $bono->save();
 
                                }
-     
+                 
                             } catch(\Illuminate\Database\QueryException $ex){
                                 
                                 Flash::Danger("Ocurrio un error con la bitacora de un adulto mayor en la fila: " .$contador. " por favor verifique dichos datos");
