@@ -34,4 +34,30 @@ class Canton extends Model
     * Eliminar timestamps del modelo
     */
     public $timestamps = false;
+    /**
+    * Relaciones
+    */
+    
+    public function municipios()
+    {
+        return $this->belongsTo('App\Municipio');
+    }
+
+    /**
+    * Relaciones RETORNOS
+    */
+
+    public function beneficiario()
+    {
+        return $this->hasMany('App\Beneficiario');
+    }
+    public function escuela()
+    {
+        return $this->hasMany('App\Escuela');
+    }
+
+
+        public static function cantones($id){
+        return Canton::where('Municipio_id',$id)->get();
+    }
 }

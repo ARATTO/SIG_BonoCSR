@@ -39,4 +39,32 @@ class Bono extends Model
     * Eliminar timestamps del modelo
     */
     public $timestamps = false;
+    /**
+    * Relaciones
+    */
+    
+    public function bitacorasEmbarazadas()
+    {
+        return $this->belongsTo('App\BitacoraEmbarazada');
+    }
+    public function bitacorasChildMenores()
+    {
+        return $this->belongsTo('App\BitacoraChildMenor');
+    }
+    public function bitacorasAdultoMayores()
+    {
+        return $this->belongsTo('App\BitacoraAdultoMayor');
+    }
+    public function bitacorasChildDiscapacitados()
+    {
+        return $this->belongsTo('App\BitacoraChildDiscapacitado');
+    }
+    public function bitacorasChildEstudiantes()
+    {
+        return $this->belongsTo('App\BitacoraChildEstudiante');
+    }
+
+    /**
+    * Relaciones RETORNOS
+    */
 }

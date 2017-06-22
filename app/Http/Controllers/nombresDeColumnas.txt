@@ -1,0 +1,137 @@
+$fila->id_ong
+   $fila->descripcion_ong 
+   $fila->detalledireccion_ong    ;
+   $fila->mision_ong   ;
+   $fila->vision_ong    ;
+                    
+
+   $fila->id_pais  ;
+   $fila->codigo_pais  ;
+   $fila->nombre_pais   ;
+
+   $fila->id_departamento  ;
+   $fila->nombre_departamento  ;
+   $fila->codigo_departamento ;
+   $fila->pais_id_departamento   ;
+
+   $fila->id_municipio     ;
+   $fila->codigo_municipio     ;
+   $fila->nombre_municipio     ;
+   $fila->departamento_id_municipio     ;
+
+   $fila->id_canton    ;
+   $fila->codigo_canton    ;
+   $fila->nombre_canton    ;
+   $fila->esextremapobreza_canton ;
+   $fila->municipio_id_canton   ;
+
+   $fila->id_titular   ;
+   $fila->codigo_titular   ;
+   $fila->nombre_titular   ;
+   $fila->apellido_titular     ;
+   $fila->dui_titular  ;
+   $fila->sabeleer_titular     ;
+   $fila->sabeescribir_titular     ;
+   $fila->fechanacimiento_titular  ;
+   $fila->genero_titular    ;
+
+   $fila->id_tipoestado    ;
+   $fila->codigo_tipoestado    ;
+   $fila->nombre_tipoestado    ;
+   $fila->descripcion_tipoestado    ;
+
+   $fila->id_tipobono  ;
+   $fila->codigo_tipobono  ;
+   $fila->nombre_tipobono  ;
+   $fila->cantidad_tipobono    ;
+   $fila->descripcion_tipobono      ;
+
+   $fila->id_beneficiario  ;
+   $fila->nombre_beneficiario  ;
+   $fila->apellidos_beneficiario   ;
+   $fila->nombremadre_beneficiario     ;
+   $fila->nombrepadre_beneficiario     ;
+   $fila->nombreencargado_beneficiario     ;
+   $fila->fechanacimiento_beneficiario     ;
+   $fila->codigo_beneficiario  ;
+   $fila->dineroinvertido_beneficiario  ;   
+   $fila->genero_beneficiario  ;
+   $fila->canton_id_beneficiario   ;
+   $fila->titular_id_beneficiario  ;
+   $fila->tipoestado_id_beneficiario   ;
+   $fila->tipobono_id_beneficiario      ;
+
+   $fila->id_escuela   ;
+   $fila->nombre_escuela   ;
+   $fila->codigo_escuela   ;
+   $fila->detalledireccion_escuela  ;   
+   $fila->canton_id_escuela     ;
+
+   $fila->id_centrodesalud     ;
+   $fila->nombre_centrodesalud    ;
+   $fila->nivel_centrodesalud  ;
+   $fila->codigo_centrodesalud     ;
+   $fila->detalledireccion_centrodesalud  ;
+   $fila->municipio_id_centrodesalud    ;
+
+   $fila->id_promotor  ;
+   $fila->codigo_promotor  ;
+   $fila->nombre_promotor  ;
+   $fila->apellido_promotor    ;
+   $fila->salario_promotor     ;
+   $fila->dui_promotor     ;
+   $fila->nit_promotor     ;
+   $fila->genero_promotor  ;
+   $fila->fechanacimiento_promotor  ;   
+   $fila->ong_id_promotor   ;
+
+   $fila->id_bitacorachilddescapacitado    ;
+   $fila->descripcion_bitacorachilddescapacitado   ;
+   $fila->promotor_id_bitacorachilddescapacitado   ;
+   $fila->beneficiario_id_bitacorachilddescapacitado    ;
+
+   $fila->id_bitacorachildestudiante   ;
+   $fila->inasistenciainjustificada_bitacorachildestudiante    ;
+   $fila->motivoporinasistencia_bitacorachildestudiante    ;
+   $fila->dineroinvertido_bitacorachildestudiante  ;
+   $fila->escuela_id_bitacorachildestudiante   ;
+   $fila->promotor_id_bitacorachildestudiante  ;
+   $fila->beneficiario_id_bitacorachildestudiante   ;
+
+
+   $fila->id_bitacorachildmenor    ;
+   $fila->fechacontrol_bitacorachildmenor  ;
+   $fila->descripcion_bitacorachildmenor   ;
+   $fila->asistio_bitacorachildmenor   ;
+   $fila->motivopornoasistir_bitacorachildmenor ;   
+   $fila->padecimientos_bitacorachildmenor     ;
+   $fila->dineroinvertido_bitacorachildmenor   ;
+   $fila->centrodesalud_id_bitacorachildmenor  ;
+   $fila->promotor_id_bitacorachildmenor   ;
+   $fila->beneficiario_id_bitacorachildmenor    ;
+
+   $fila->id_bitacoraembarazada    ;
+   $fila->fechacontrol_bitacoraembarazada  ;
+   $fila->descripcion_bitacoraembarazada   ;
+   $fila->asistiocontrol_bitacoraembarazada    ;
+   $fila->motivopornoasistir_bitacoraembarazada    ;
+   $fila->dineroinvertido_bitacoraembarazada   ;
+   $fila->centrodesalud_id_bitacoraembarazada  ;
+   $fila->promotor_id_bitacoraembarazada   ;
+   $fila->beneficiario_id_bitacoraembarazada    ;
+
+   $fila->id_bitacoraadultomayor   ;
+   $fila->descripcion_bitacoraadultomayor  ;
+   $fila->promotor_id_bitacoraadultomayor  ;
+   $fila->beneficiario_id_bitacoraadultomayor   ;
+
+   $fila->id_bono  ;
+   $fila->dineroacumulado_bono     ;
+   $fila->fechainicioperiodo_bono  ;
+   $fila->fechafinperiodo_bono     ;
+   $fila->periodofinalizo;
+   $fila->bitacoraembarazada_id_bono   ;
+   $fila->bitacorachildmenor_id_bono   ;
+   $fila->bitacoraadultomayor_id_bono  ;
+   $fila->bitacorachilddiscapacitado_id_bono   ;
+   $fila->bitacorachildestudiante_id_bono  ;

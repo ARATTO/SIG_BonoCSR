@@ -22,7 +22,7 @@ class Beneficiario extends Model
         'fechaNacimiento',
         'codigo',
         'dineroInvertido',
-        'genero'
+        'genero',
         'descripcionDiscapacidad',
         /*FK*/
         'Canton_id',
@@ -44,4 +44,46 @@ class Beneficiario extends Model
     * Eliminar timestamps del modelo
     */
     public $timestamps = false;
+    /**
+    * Relaciones
+    */
+    public function cantones()
+    {
+        return $this->belongsTo('App\Canton');
+    }
+    public function titulares()
+    {
+        return $this->belongsTo('App\Titular');
+    }
+    public function tipoEstados()
+    {
+        return $this->belongsTo('App\TipoEstado');
+    }
+    public function tipoBonos()
+    {
+        return $this->belongsTo('App\TipoBono');
+    }
+    /**
+    * Relaciones RETORNOS
+    */
+    public function bitacoraAdultoMayor()
+    {
+        return $this->hasMany('App\BitacoraAdultoMayor','Beneficiario_id');
+    }
+    public function bitacoraChildDiscapacitado()
+    {
+        return $this->hasMany('App\BitacoraChildDiscapacitado','Beneficiario_id');
+    }
+    public function bitacoraChildEstudiante()
+    {
+        return $this->hasMany('App\BitacoraChildEstudiante','Beneficiario_id');
+    }
+    public function bitacoraChildMenor()
+    {
+        return $this->hasMany('App\BitacoraChildMenor','Beneficiario_id');
+    }
+    public function bitacoraChildEmbarazada()
+    {
+        return $this->hasMany('App\BitacoraEmbarazada','Beneficiario_id');
+    }
 }

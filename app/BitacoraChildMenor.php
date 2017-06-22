@@ -40,4 +40,27 @@ class BitacoraChildMenor extends Model
     * Eliminar timestamps del modelo
     */
     public $timestamps = false;
+    /**
+    * Relaciones
+    */
+    public function centrosDeSalud()
+    {
+        return $this->belongsTo('App\CentroDeSalud');
+    }
+    public function beneficiarios()
+    {
+        return $this->belongsTo('App\Beneficiario');
+    }
+    public function promotores()
+    {
+        return $this->belongsTo('App\Promotor');
+    }
+
+    /**
+    * Relaciones RETORNOS
+    */
+    public function bono()
+    {
+        return $this->hasMany('App\Bono','BitacoraChildMenor_id');
+    }
 }

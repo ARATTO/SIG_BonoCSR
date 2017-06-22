@@ -18,7 +18,7 @@ class BitacoraChildEstudiante extends Model
         'motivoPorInasistencias',
         'dineroInvertido',
         /*FK*/
-        'Esscuela_id',
+        'Escuela_id',
         'Promotor_id',
         'Beneficiario_id',
     ];
@@ -36,4 +36,27 @@ class BitacoraChildEstudiante extends Model
     * Eliminar timestamps del modelo
     */
     public $timestamps = false;
+    /**
+    * Relaciones
+    */
+    public function escuelas()
+    {
+        return $this->belongsTo('App\Escuela');
+    }
+    public function beneficiarios()
+    {
+        return $this->belongsTo('App\Beneficiario');
+    }
+    public function promotores()
+    {
+        return $this->belongsTo('App\Promotor');
+    }
+
+    /**
+    * Relaciones RETORNOS
+    */
+    public function bono()
+    {
+        return $this->hasMany('App\Bono','BitacoraChildEstudiante_id');
+    }
 }
