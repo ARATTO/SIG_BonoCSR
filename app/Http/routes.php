@@ -36,7 +36,7 @@ Route::get('/admin', 'HomeController@index');
 /*
         * Inicio Rutas para User
         */
-        
+        Route::resource('users','UserController');
         /*
         * Fin Rutas para User
         */

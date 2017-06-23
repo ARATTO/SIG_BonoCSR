@@ -52,7 +52,8 @@
                             <span class="input-group-addon" id="segundonombre">Canton</span>
                                 {!! Form::select('canton',[null],null,['id'=>'canton','class'=>'form-control','required'=>'true','placeholder'=>'Seleccione un canton']) !!}              
                     </div>
-
+                    
+                    <hr>
                     <br>
                     <br>
                     <br>
@@ -73,9 +74,8 @@
                                                    
                         <input type="date" class="form-control" id="fechaFin" name="fechaFin" data-provide="datepicker" placeholder="mes/dia/año" required="true" data-date-format="yyyy-mm-dd" onchange="compararFechas()"><br>  
                     </div>
-
-        
-
+                    <hr>
+                    
 
                 <div class="form-group form-inline">
                     <h3><span class="label label-danger">{{ trans('') }}</span><h3>
