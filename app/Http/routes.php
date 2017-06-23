@@ -75,6 +75,11 @@ Route::get('/prueba', function () {
     'as' => 'seleccionarDatos'
     ]);
 
+  Route::get('datosInversion',[
+    'uses' => 'inversionesController@show',
+    'as' => 'datosInversion'
+    ]);
+
 
 
  Route::get('municipioInversiones/{id}','inversionesController@municipioInversiones');

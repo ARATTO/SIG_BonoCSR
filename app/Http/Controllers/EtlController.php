@@ -78,7 +78,7 @@ class EtlController extends Controller
                        //$f=1;
                 $hoja->each(function($fila,$f) {
                    //echo " N° de fila: ".($f+2)."<br>".$fila;
-
+                   //dd('hola');
                     $contador = 2;
 
                 /*ANALIZANDO TABLA ONG*/
@@ -252,6 +252,11 @@ class EtlController extends Controller
                          $titular->dui=  $fila->dui_titular  ;
                          $titular->sabeleer=  $fila->sabeleer_titular     ;
                          $titular->sabeescribir=  $fila->sabeescribir_titular     ;
+                           if($fila->fechanacimiento_titular == null){
+                                Flash::Danger("Ocurrio un error con el titular en la fila: " .$contador. " por favor verifique dichos datos");
+                              return redirect()->route('etl');
+                                exit;
+                           }                         
                          $titular->fechanacimiento=  $fila->fechanacimiento_titular->format('Y-m-d');  ;
                          $titular->genero= $fila->genero_titular    ;
                          $titular->save();                                                        
@@ -348,6 +353,11 @@ class EtlController extends Controller
                            $beneficiario->nombremadre = $fila->nombremadre_beneficiario     ;
                            $beneficiario->nombrepadre = $fila->nombrepadre_beneficiario     ;
                            $beneficiario->nombreencargado = $fila->nombreencargado_beneficiario     ;
+                           if($fila->fechanacimiento_beneficiario == null){
+                             Flash::Danger("Ocurrio un error con el beneficiario en la fila: " .$contador. " por favor verifique dichos datos");
+                              return redirect()->route('etl');
+                                exit;
+                           }
                            $beneficiario->fechanacimiento = $fila->fechanacimiento_beneficiario->format('Y-m-d');
                            $beneficiario->codigo = $fila->codigo_beneficiario  ;
                            $beneficiario->dineroinvertido = $fila->dineroinvertido_beneficiario  ;   

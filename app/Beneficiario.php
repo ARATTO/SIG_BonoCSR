@@ -82,7 +82,7 @@ class Beneficiario extends Model
     {
         return $this->hasMany('App\BitacoraChildMenor','Beneficiario_id');
     }
-    public function bitacoraChildEmbarazada()
+    public function bitacoraEmbarazada()
     {
         return $this->hasMany('App\BitacoraEmbarazada','Beneficiario_id');
     }

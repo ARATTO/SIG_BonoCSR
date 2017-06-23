@@ -49,8 +49,8 @@ class BitacoraChildDiscapacitado extends Model
     /**
     * Relaciones RETORNOS
     */
-    public function bono()
+    public function bono($fechaInicio,$fechaFin)
     {
-        return $this->hasMany('App\Bono','BitacoraChildDiscapacitado_id');
+        return $this->hasMany('App\Bono','BitacoraChildDiscapacitado_id')->whereRAW("DATE_FORMAT('{$fechaInicio}', '%y-%m-%d') >= fechaInicioPeriodo and  DATE_FORMAT('{$fechaFin}', '%y-%m-%d') <= fechaFinPeriodo")->get();
     }
 }

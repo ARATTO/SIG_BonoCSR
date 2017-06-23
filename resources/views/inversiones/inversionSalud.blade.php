@@ -110,8 +110,8 @@
 
                 var fecha = (((fecha3/1000.0)/60.0)/60)/24.0;
                 
-
-                if (fecha>28    ) {
+                console.log(fecha);
+                if (fecha>=28    ) {
                     document.getElementById('guardar').disabled= false;
                     
                 }else{

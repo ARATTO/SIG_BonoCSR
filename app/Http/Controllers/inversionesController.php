@@ -57,46 +57,118 @@ class inversionesController extends Controller
     }
 
     public function store(Request $request){
+        $dineroChildDiscapacitados=0;
+        $dineroChildEstudiante=0;
+        $dineroChildMenor=0;
+        $dineroEmbarazada=0;
+
+        //dd($request->all());
         
         $beneficiario = Beneficiario::where('canton_id',$request->canton)
         ->whereRAW("(tipoBono_id = 1 or tipoBono_id =2)")->get();
 
 
-
-        $beneficiario->each(function($beneficiario){
+        $i=0;
+        foreach ($beneficiario as $bene) {
             
-            $beneficiario->bitacoraChildDiscapacitado;
-            if(count($beneficiario->bitacoraChildDiscapacitado)>0){
-                foreach ($beneficiario->bitacoraChildDiscapacitado as $value) {
-                    $value->bono;    
+            $bene->bitacoraChildDiscapacitado;
+            if(count($bene->bitacoraChildDiscapacitado)>0){
+                foreach ($bene->bitacoraChildDiscapacitado as $value) {
+                    $valor= $value->bono($request->fechaInicio,$request->fechaFin);
+                    $value->bono = $valor;    
                 }                
             }
 
-            $beneficiario->bitacoraChildEstudiante;
-            if(count($beneficiario->bitacoraChildEstudiante)>0){
-                foreach ($beneficiario->bitacoraChildEstudiante as $value) {
-                    $value->bono;
+            $bene->bitacoraChildEstudiante;
+            if(count($bene->bitacoraChildEstudiante)>0){
+                foreach ($bene->bitacoraChildEstudiante as $value) {
+                    $valor= $value->bono($request->fechaInicio,$request->fechaFin);
+                    $value->bono = $valor;
+
+                    
                 }
             }
 
-            $beneficiario->bitacoraChildMenor;
-            if(count($beneficiario->bitacoraChildMenor)>0){
-                foreach ($beneficiario->bitacoraChildMenor as $value) {
-                    $value->bono;
+            $bene->bitacoraChildMenor;
+            if(count($bene->bitacoraChildMenor)>0){
+                foreach ($bene->bitacoraChildMenor as $value) {
+                    $valor= $value->bono($request->fechaInicio,$request->fechaFin);
+                    $value->bono = $valor;
                 }
             }
 
-            $beneficiario->bitacoraChildEmbarazada;
-            if(count($beneficiario->bitacoraChildEmbarazada)>0){
-                foreach ($beneficiario->bitacoraChildEmbarazada as $value) {
-                    $value->bono;
+
+            try{
+                $bene->bitacoraEmbarazada;
+                if(count($bene->bitacoraEmbarazada)>0){
+                foreach ($bene->bitacoraEmbarazada as $value) {
+                    $valor= $value->bono($request->fechaInicio,$request->fechaFin);
+                    $value->bono = $valor;
                 }
             }
-      
-        });
+
+            } catch(\Illuminate\Database\QueryException $ex){
+                dd($ex);
+            }
+            
+
+    }// fin del for
+
+        foreach ($beneficiario as $bene) {
+            
+            if(count($bene->bitacoraChildDiscapacitado)>0){
+                foreach ($bene->bitacoraChildDiscapacitado as $value) {
+                    if(count($value->bono)){
+                               
         
-        dd($beneficiario);
+                        $dineroChildDiscapacitados= $dineroChildDiscapacitados + $value->dineroInvertido;
+                    }
+                }                
+            }
+
+            if(count($bene->bitacoraChildEstudiante)>0){
+                foreach ($bene->bitacoraChildEstudiante as $value) {
+                    if(count($value->bono)){
+                        $dineroChildEstudiante=$dineroChildEstudiante+ $value->dineroInvertido;
+        
+                    }
+                    
+                }
+            }
+
+            if(count($bene->bitacoraChildMenor)>0){
+                foreach ($bene->bitacoraChildMenor as $value) {
+                    if(count($value->bono)){
+                        $dineroChildMenor = $dineroChildMenor + $value->dineroInvertido;
+                        
+                    }
+
+                }
+            }
+
+           if(count($bene->bitacoraEmbarazada)>0){
+                foreach ($bene->bitacoraEmbarazada as $value) {
+                    if(count($value->bono)){
+                        $dineroEmbarazada=$dineroEmbarazada+ $value->dineroInvertido;
+                    }
+
+                }
+            }
+
+    }// fin del for
+
+
+      
+        return view('inversiones.resultadoInversionSalud')->with('dineroChildMenor',$dineroChildMenor);  
+
+
     }   
+
+
+    public function show(){
+
+
+    }
 
 
 }
