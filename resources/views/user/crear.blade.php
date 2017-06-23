@@ -18,8 +18,8 @@
                                     {!! Form::open(['route' => 'users.store', 'method' => 'POST', 'files' => true]) !!}
                                         <div class="col-md-10 col-md-offset-1">
                                                 <div class="input-group has-info form-inline">
-                                                        <span class="input-group-addon" id="nombre">Nombre</span>
-                                                        {!! form::text('nombre', null, ['class' => 'form-control', 'placeholder'=> 'Garcia Gonzales Herrera Mendoza', 'required']) !!}
+                                                        <span class="input-group-addon" id="username">Nombre</span>
+                                                        {!! form::text('username', null, ['class' => 'form-control', 'placeholder'=> 'Garcia Gonzales Herrera Mendoza', 'required']) !!}
                                                 </div>
                                                 <hr>
                                                 <div class="input-group has-info form-inline">

@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\UserRequest;
 use App\User;
 use App\ONG;
+use Laracasts\Flash\Flash;
 
 class UserController extends Controller
 {
@@ -40,9 +42,26 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $user = new User();
+        $user->fill($request->all());
+        switch($request->rol){
+            case 1:
+                $user->esAdministrador = 1;
+            break;
+            case 2:
+                $user->esGerencial = 1;
+            break;
+            case 3:
+                $user->esTransaccional = 1;
+            break;
+        }
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        Flash::info("Se ha registrado ".$user->username." de forma exitosa");
+        return view('user.index');
     }
 
     /**
