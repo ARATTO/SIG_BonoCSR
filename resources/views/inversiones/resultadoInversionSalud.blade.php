@@ -69,6 +69,10 @@
 									<td>Programa mujeres embarazadas</td>
 									<td>{{$dineroEmbarazada}}</td>
 								</tr>
+								<tr>
+									<td><b>TOTAL</b></td>
+									<td><B>{{$dineroEmbarazada + $dineroChildDiscapacitados +$dineroChildEstudiante+$dineroChildMenor}}</B></td>
+								</tr>
 								
 							</tbody>
 						</table>
