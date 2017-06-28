@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use  Faker\Factory as faker;
+
 
 class UsersTableSeeder extends Seeder
 {
@@ -12,6 +12,51 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+
+            DB::table('user')->insert([
+                'username' => 'Rodrigo Daniel Segovia Romero',
+                'email' => 'rodrigoxj32@hotmail.com',
+                'password' => bcrypt('fisdl2017'), 
+                'esGerencial' => 1,
+                'esTransaccional'=> 0,
+                'ONG_id' => 1,
+                'esAdministrador' => 0,
+            ]);     
+
+            DB::table('user')->insert([
+                'username' => 'Dario Roman Araya Motto',
+                'email' => 'dario_aratto@hotmail.com',
+                'password' => bcrypt('fisdl2017'), 
+                'esGerencial' => 0,
+                'esTransaccional'=> 0,
+                'ONG_id' => 1,
+                'esAdministrador' => 1,
+            ]);     
+
+
+            DB::table('user')->insert([
+                'username' => 'Alejandra Abigail Canizalez Santos',
+                'email' => 'alejandra@hotmail.com',
+                'password' => bcrypt('fisdl2017'), 
+                'esGerencial' => 0,
+                'esTransaccional'=> 1,
+                'ONG_id' => 1,
+                'esAdministrador' => 0,
+            ]); 
+
+            DB::table('user')->insert([
+                'username' => 'Sharyl Jeannine Mendoza Guardado',
+                'email' => 'sharyl@hotmail.com',
+                'password' => bcrypt('fisdl2017'), 
+                'esGerencial' => 0,
+                'esTransaccional'=> 1,
+                'ONG_id' => 1,
+                'esAdministrador' => 0,
+            ]);             
+
+
+
+/*
         $faker = Faker::create();
 
         for ($i = 0; $i < 3; $i ++){
@@ -36,6 +81,7 @@ class UsersTableSeeder extends Seeder
             'ONG_id' => 1,
             ]);
         }
-  }
+  }*/
 
+    }
 }

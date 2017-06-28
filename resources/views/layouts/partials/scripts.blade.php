@@ -7,7 +7,7 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('/js/app.min.js') }}" type="text/javascript"></script>
 <!-- DataTable pluggin -->
-<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="{{ asset('/plugins/datatables/jquery.dataTables.min.js') }}" type="text/javascript"></script>
 <!-- Include Date Range Picker Pluging RangosFechas-->
 <script type="text/javascript" src="{{ asset('/plugins/daterangepicker/moment.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/plugins/daterangepicker/daterangepicker.js') }}"></script>

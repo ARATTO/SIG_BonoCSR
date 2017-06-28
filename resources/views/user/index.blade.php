@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-	{{ trans('tntmessage.Usuario') }}
+	Usuarios
 @endsection
         
 @section('main-content')
-    @include('layouts.partials.contentheader.user.index_head')
+
     <!-- Main content -->
         <section class="content">
             <!-- Your Page Content Here -->
@@ -14,10 +14,10 @@
 			<div class="col-md-10 col-md-offset-1">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						{{ trans('tntmessage.Usuario') }}
+						Usuario
 						<a href="{{ route('users.create') }}">
 						<button type="button" class="btn btn-success btn-xs pull-right">
-							{{ trans('tntmessage.CrearUsuario') }}
+							Crear Usuario
 						</button>
 						</a>
 					</div>
@@ -28,32 +28,54 @@
 								<thead>
 									<tr>
 										<th>Nombre</th>
-										<th>Apellido</th>
-										<th>Genero</th>
-                                        <th>Correo</th>
-										<th>Nacimiento</th>
+										<th>Email</th>
 										<th>Rol</th>
 									</tr>
 								</thead>
 								<tfoot>
 									<tr>
 										<th>Nombre</th>
-										<th>Apellido</th>
-										<th>Genero</th>
-                                        <th>Correo</th>
-										<th>Nacimiento</th>
+										<th>Email</th>
 										<th>Rol</th>
 									</tr>
 								</tfoot>
 								<tbody>
 									@foreach($users as $user)
 										<tr>
-											<td>{{$user->nombres}}</td>
-                                            <td>{{$user->apellidos}}</td>
-                                            <td>{{$user->genero}}</td>
+											<td>{{$user->username}}</td>
 											<td>{{$user->email}}</td>
-                                            <td>{{$user->fechanacimiento}}</td>
-                                            <td>{{$user->roles->nombrerol}}</td>
+                                            <td>
+												<!-- Es Administrador-->
+												@if( $user->esAdministrador == 1 )
+														<div class="btn-group btn-group-sm" role="group" aria-label="...">
+															
+															<a href="#" class="btn btn-danger" disabled="disabled">
+																Administrador
+															</a>
+														</div>
+												@else
+													<!-- Es Gerente-->
+													@if( $user->esGerencial == 1)
+														<div class="btn-group btn-group-sm" role="group" aria-label="...">
+															
+															<a href="#" class="btn btn-success" disabled="disabled">
+																Gerencial
+															</a>
+														</div>
+													@else
+														<!-- Es Gerente-->
+														@if($user->esTransaccional == 1)
+															<div class="btn-group btn-group-sm" role="group" aria-label="...">
+																
+																<a href="#" class="btn btn-info" disabled="disabled">
+																	Tactico
+																</a>
+															</div>
+														@endif
+													@endif
+												@endif
+
+											</td>
 										</tr>
 									@endforeach
 								</tbody>
