@@ -5,7 +5,7 @@
 @extends('layouts.app')
 <!-- TEXTO DEL HEADER -->
 @section('htmlheader_title')
-	Inversion en salud
+	Inversion en Adulto Mayor
 @endsection
 
 
@@ -20,7 +20,7 @@
 			<div class="col-md-10 col-md-offset-1">
 				<div class="panel panel-default">
                     <!-- AQUI DEBEN AGREGAR EL MENSAJE QUE QUIERAN EN EL PANEL HEAD -->
-					<div class="panel-heading"> Inversion Inversion en Salud </div>
+					<div class="panel-heading"> Inversion en el programa adulto mayor </div>
 					<div class="panel-body">
 						@include('bones-flash::bones.flash')
 						@include('layouts.partials.flash')
@@ -29,14 +29,14 @@
              
                   
                             <span class="input-group-addon" id="fechaInicio">Fecha Inicio</span>
-                            <input class="form-control" type="text" name="fechaInicio" value="{{$fechaInicio}}" disabled="true">
+                            <input class="form-control" type="text" name="fechaInicio" value="2017-04-01" disabled="true">
 
 
                             <span class="input-group-addon" id="fechaFin">Fecha Fin</span>
-                            <input class="form-control" type="text" name="fechaFin" value="{{$fechaFin}}" disabled="true">
+                            <input class="form-control" type="text" name="fechaFin" value="2017-05-30" disabled="true">
 
                             <span class="input-group-addon" id="canton">Canton</span>
-                            <input class="form-control" type="text" name="canton" value="{{$canton[0]->nombre}}" disabled="true">
+                            <input class="form-control" type="text" name="canton" value="El pedregal" disabled="true">
 
                       
                     </div>	
@@ -54,24 +54,13 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td>Programa niños menores de 5 años</td>
-									<td>$ {{$dineroChildMenor}}</td>
+									<td>Programa adulto mayor</td>
+									<td>$ 500<td>
 								</tr>
-								<tr>
-									<td>Programa niños bono educacion</td>
-									<td>$ {{$dineroChildEstudiante}}</td>
-								</tr>
-								<tr>
-									<td>Programa niños con discapacidades</td>
-									<td>$ {{$dineroChildDiscapacitados}}</td>
-								</tr>
-								<tr>
-									<td>Programa mujeres embarazadas</td>
-									<td>$ {{$dineroEmbarazada}}</td>
-								</tr>
+
 								<tr>
 									<td><b>TOTAL</b></td>
-									<td><B>$ {{$dineroEmbarazada + $dineroChildDiscapacitados +$dineroChildEstudiante+$dineroChildMenor}}</B></td>
+									<td><B>$ 500</B></td>
 								</tr>
 								
 							</tbody>
