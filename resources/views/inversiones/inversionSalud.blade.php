@@ -11,7 +11,7 @@
 
 @section('main-content')
     <!-- AQUI DEBEN LLAMAR EL HEADER PARA CADA VIEW CREADO EN "CONTENTHEADER"" -->
-	@include('layouts.partials.contentheader._default')
+	
     <!-- Main content -->
         <section class="content">
             <!-- Your Page Content Here -->

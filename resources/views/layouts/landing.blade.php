@@ -77,26 +77,21 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <div class="container">
         <div class="row centered">
             <div class="col-lg-12">
-                <h1><b>BONOCSR</b> </h1>
-                <h3>A <a href="https://laravel.com/">Laravel</a> {{ trans('adminlte_lang::message.laravelpackage') }}
-                    scaffolding/boilerplate {{ trans('adminlte_lang::message.to') }} <a href="https://almsaeedstudio.com/preview">AdminLTE</a> {{ trans('adminlte_lang::message.templatewith') }}
-                    <a href="http://getbootstrap.com/">Bootstrap</a> 3.0 {{ trans('adminlte_lang::message.and') }} <a href="http://blacktie.co/demo/pratt/">Pratt</a> Landing page</h3>
+                <h1>
+                    BONO<b>CSR</b> 
+                    <img class="col-xs-3 hidden-xs hidden-sm hidden-md" src="{{ asset('/img/logo.png') }}">
+                </h1>
+                
+                <hr>
+                <h3>
+                    SISTEMA INFORMÁTICO GERENCIAL PARA EL SISTEMA TRANSACCIONAL COMUNIDADES SOLIDARIAS RURALES (CSR).
+                </h3>
+                <h3>
+                    <b>“EDUCACIÓN Y SALUD” y “ADULTO MAYOR”</b>
+                </h3>
                 <hr>
             </div>
-            <div class="col-lg-2">
-                <h5>{{ trans('adminlte_lang::message.amazing') }}</h5>
-                <p>{{ trans('adminlte_lang::message.basedadminlte') }}</p>
-                <img class="hidden-xs hidden-sm hidden-md" src="{{ asset('/img/arrow1.png') }}">
-            </div>
-            <div class="col-lg-8">
-                <img class="img-responsive" src="{{ asset('/img/app-bg.png') }}" alt="">
-            </div>
-            <div class="col-lg-2">
-                <br>
-                <img class="hidden-xs hidden-sm hidden-md" src="{{ asset('/img/arrow2.png') }}">
-                <h5>{{ trans('adminlte_lang::message.awesomepackaged') }}</h5>
-                <p>... {{ trans('adminlte_lang::message.by') }} <a href="http://acacha.org/sergitur">Sergi Tur Badenas</a> {{ trans('adminlte_lang::message.at') }} <a href="http://acacha.org">acacha.org</a> {{ trans('adminlte_lang::message.readytouse') }}</p>
-            </div>
+            
         </div>
     </div> <!--/ .container -->
 </div><!--/ #headerwrap -->
@@ -107,23 +102,23 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 <div id="intro">
     <div class="container">
         <div class="row centered">
-            <h1>{{ trans('adminlte_lang::message.designed') }}</h1>
+            <h1>Diseñado para CSR</h1>
             <br>
             <br>
             <div class="col-lg-4">
                 <img src="{{ asset('/img/intro01.png') }}" alt="">
-                <h3>{{ trans('adminlte_lang::message.community') }}</h3>
-                <p>{{ trans('adminlte_lang::message.see') }} <a href="https://github.com/acacha/adminlte-laravel">{{ trans('adminlte_lang::message.githubproject') }}</a>, {{ trans('adminlte_lang::message.post') }} <a href="https://github.com/acacha/adminlte-laravel/issues">{{ trans('adminlte_lang::message.issues') }}</a> {{ trans('adminlte_lang::message.and') }} <a href="https://github.com/acacha/adminlte-laravel/pulls">{{ trans('adminlte_lang::message.pullrequests') }}</a></p>
+                <h3>Diversos Usuarios</h3>
+                <p>Seguridad sobre las salidas suministradas.</p>
             </div>
             <div class="col-lg-4">
                 <img src="{{ asset('/img/intro02.png') }}" alt="">
-                <h3>{{ trans('adminlte_lang::message.schedule') }}</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <h3>Administracion</h3>
+                <p>Salidas Tacticas y Gerenciales en tiempo real.</p>
             </div>
             <div class="col-lg-4">
                 <img src="{{ asset('/img/intro03.png') }}" alt="">
-                <h3>{{ trans('adminlte_lang::message.monitoring') }}</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <h3>Mantenimiento </h3>
+                <p>Gestion gerencial y tactica de los diferentes bonos administrados.</p>
             </div>
         </div>
         <br>
@@ -135,12 +130,12 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 <div id="c">
     <div class="container">
         <p>
-            <a href="https://github.com/acacha/adminlte-laravel"></a><b>admin-lte-laravel</b></a>. {{ trans('adminlte_lang::message.descriptionpackage') }}.<br/>
-            <strong>Copyright &copy; 2015 <a href="http://acacha.org">Acacha.org</a>.</strong> {{ trans('adminlte_lang::message.createdby') }} <a href="http://acacha.org/sergitur">Sergi Tur Badenas</a>. {{ trans('adminlte_lang::message.seecode') }} <a href="https://github.com/acacha/adminlte-laravel">Github</a>
+            <a href="#"></a><b>BONOCSR</b></a>.<br/>
+            <strong>Copyright &copy; 2017 <a href="#">UES</a>.</strong></a>
             <br/>
-            AdminLTE {{ trans('adminlte_lang::message.createdby') }} Abdullah Almsaeed <a href="https://almsaeedstudio.com/">almsaeedstudio.com</a>
+            BONOCSR creado por Estudiantes 5to año Ingenieria de Sistemas Informaticos <a href="#">UES.</a>
             <br/>
-             Pratt Landing Page {{ trans('adminlte_lang::message.createdby') }} <a href="http://www.blacktie.co">BLACKTIE.CO</a>
+            para Sistemas de Informacion Gerencial
         </p>
 
     </div>
