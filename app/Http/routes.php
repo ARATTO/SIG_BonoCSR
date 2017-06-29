@@ -82,7 +82,7 @@ Route::get('/prueba', function () {
 
 
 
- Route::get('municipioInversiones/{id}','inversionesController@municipioInversiones');
+Route::get('municipioInversiones/{id}','inversionesController@municipioInversiones');
 
 Route::get('cantonInversiones/{id}','inversionesController@cantonInversiones');
 
@@ -92,7 +92,19 @@ Route::get('cantonInversiones/{id}','inversionesController@cantonInversiones');
             ]);
 
 
+Route::get('tactico',[
+    'uses' => 'tacticoController@index',
+    'as' => 'seleccionDatosTacticos'
+    ]);
 
+Route::get('municipioTactico/{id}','tacticoController@municipioTactico');
+
+Route::get('cantonTactico/{id}','tacticoController@cantonTactico');
+
+  Route::post('datos', [
+    'uses' => 'tacticoController@store', 
+    'as'    => 'datosTactico'
+            ]);
 
 /*
 *

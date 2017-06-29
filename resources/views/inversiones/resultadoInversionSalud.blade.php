@@ -20,7 +20,7 @@
 			<div class="col-md-10 col-md-offset-1">
 				<div class="panel panel-default">
                     <!-- AQUI DEBEN AGREGAR EL MENSAJE QUE QUIERAN EN EL PANEL HEAD -->
-					<div class="panel-heading"> Inversion Inversion en Salud </div>
+					<div class="panel-heading">Inversion en Salud </div>
 					<div class="panel-body">
 						@include('bones-flash::bones.flash')
 						@include('layouts.partials.flash')
