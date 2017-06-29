@@ -167,6 +167,19 @@ Route::get('cantonInversiones/{id}','inversionesController@cantonInversiones');
             ]);
 
 
+
+
+/*
+*
+* FIN RUTAS RODRIGO
+*
+*/
+
+//////////////////////////////////////////////////////////////////////////////////
+
+
+/*RUTAS SHARYL*/
+
 Route::get('menores',[ //Nombre de la ruta que se le da en el controller//
     'uses' => 'menoresFController@index', //nombre del controllador
     'as' => 'seleccionDatosMenoresF' //se renombra
@@ -181,10 +194,14 @@ Route::get('cantonMenoresF/{id}','menoresFController@cantonMenoresF');
     'as'    => 'datosMenoresF'
             ]);
 
-/*
-*
-* FIN RUTAS RODRIGO
-*
-*/
 
-//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+/*FIN DE RUTAS SHARYL*/
