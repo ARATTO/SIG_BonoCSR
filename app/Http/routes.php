@@ -36,7 +36,7 @@ Route::get('/admin', 'HomeController@index');
 /*
         * Inicio Rutas para User
         */
-        
+        Route::resource('users','UserController');
         /*
         * Fin Rutas para User
         */
@@ -54,7 +54,7 @@ Route::get('/admin', 'HomeController@index');
 *
 */
 Route::get('/prueba', function () {
-    return view('tactico.prueba');
+    return view('inversiones.resultadoInversionAdulto');
 });
 
 
@@ -75,6 +75,11 @@ Route::get('/prueba', function () {
     'as' => 'seleccionarDatos'
     ]);
 
+  Route::get('datosInversion',[
+    'uses' => 'inversionesController@show',
+    'as' => 'datosInversion'
+    ]);
+
 
 
  Route::get('municipioInversiones/{id}','inversionesController@municipioInversiones');
@@ -85,6 +90,7 @@ Route::get('cantonInversiones/{id}','inversionesController@cantonInversiones');
     'uses' => 'inversionesController@store', 
     'as'    => 'datos'
             ]);
+
 
 
 

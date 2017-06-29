@@ -11,7 +11,7 @@
 
 @section('main-content')
     <!-- AQUI DEBEN LLAMAR EL HEADER PARA CADA VIEW CREADO EN "CONTENTHEADER"" -->
-	@include('layouts.partials.contentheader._default')
+	
     <!-- Main content -->
         <section class="content">
             <!-- Your Page Content Here -->
@@ -52,7 +52,8 @@
                             <span class="input-group-addon" id="segundonombre">Canton</span>
                                 {!! Form::select('canton',[null],null,['id'=>'canton','class'=>'form-control','required'=>'true','placeholder'=>'Seleccione un canton']) !!}              
                     </div>
-
+                    
+                    <hr>
                     <br>
                     <br>
                     <br>
@@ -73,9 +74,8 @@
                                                    
                         <input type="date" class="form-control" id="fechaFin" name="fechaFin" data-provide="datepicker" placeholder="mes/dia/año" required="true" data-date-format="yyyy-mm-dd" onchange="compararFechas()"><br>  
                     </div>
-
-        
-
+                    <hr>
+                    
 
                 <div class="form-group form-inline">
                     <h3><span class="label label-danger">{{ trans('') }}</span><h3>
@@ -110,8 +110,8 @@
 
                 var fecha = (((fecha3/1000.0)/60.0)/60)/24.0;
                 
-
-                if (fecha>28    ) {
+                console.log(fecha);
+                if (fecha>=28    ) {
                     document.getElementById('guardar').disabled= false;
                     
                 }else{
