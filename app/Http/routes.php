@@ -189,7 +189,7 @@ Route::get('municipioMenoresF/{id}','menoresFController@municipioMenoresF');
 
 Route::get('cantonMenoresF/{id}','menoresFController@cantonMenoresF');
 
-  Route::post('datos', [
+  Route::post('datosmenores', [
     'uses' => 'menoresFController@store', 
     'as'    => 'datosMenoresF'
             ]);
