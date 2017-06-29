@@ -33,13 +33,32 @@ Route::get('/admin', 'HomeController@index');
 * RUTAS MOTTO
 *
 */
-/*
+        /*
         * Inicio Rutas para User
         */
         Route::resource('users','UserController');
         /*
         * Fin Rutas para User
         */
+        /*
+        * Inicio Rutas para Titulares por Genero y Edad
+        */
+        Route::get('titulares_genero',[
+          'uses' => 'MTitularesGenero@index',
+          'as' => 'tit_genero'
+        ]);
+        Route::post('titulares_genero_cargar', [
+          'uses' => 'MTitularesGenero@store', 
+          'as'   => 'titulares_genero_cargar'
+        ]);
+        Route::post('titulares_genero_resultado', [
+          'uses' => 'MTitularesGenero@resultado', 
+          'as'   => 'titulares_genero_resultado'
+        ]);
+        /*
+        * Fin Rutas para Titulares por Genero y Edad
+        */
+        
 /*
 *
 * FIN RUTAS MOTTO
