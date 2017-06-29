@@ -51,14 +51,70 @@ Route::get('/admin', 'HomeController@index');
           'uses' => 'MTitularesGenero@store', 
           'as'   => 'titulares_genero_cargar'
         ]);
-        Route::post('titulares_genero_resultado', [
-          'uses' => 'MTitularesGenero@resultado', 
-          'as'   => 'titulares_genero_resultado'
-        ]);
+        Route::get('/tit_genero_resultado', function () {
+          return view('tit_genero.resultado');
+        });
+        
         /*
         * Fin Rutas para Titulares por Genero y Edad
         */
+
+        /*
+        * Inicio Rutas para Titulares Adulto
+        */
+        Route::get('titulares_adulto',[
+          'uses' => 'MTitularesAdulto@index',
+          'as' => 'tit_adulto'
+        ]);
+        Route::post('titulares_adulto_cargar', [
+          'uses' => 'MTitularesAdulto@store', 
+          'as'   => 'titulares_adulto_cargar'
+        ]);
+        Route::get('/tit_adulto_resultado', function () {
+          return view('tit_adulto.resultado');
+        });
         
+        /*
+        * Fin Rutas para Titulares Adulto
+        */
+        
+        /*
+        * Inicio Rutas para Titulares Niños y Embarazada
+        */
+        Route::get('titulares_ne',[
+          'uses' => 'MTitularesNE@index',
+          'as' => 'tit_ne'
+        ]);
+        Route::post('titulares_ne_cargar', [
+          'uses' => 'MTitularesNE@store', 
+          'as'   => 'titulares_ne_cargar'
+        ]);
+        Route::get('/tit_ne_resultado', function () {
+          return view('tit_ne.resultado');
+        });
+        
+        /*
+        * Fin Rutas para Titulares Niños y Embarazada
+        */
+
+        /*
+        * Inicio Rutas para Fallecido Adulto
+        */
+        Route::get('fallecido_adulto',[
+          'uses' => 'MFallecidoAdulto@index',
+          'as' => 'fallecido_adulto'
+        ]);
+        Route::post('fallecido_adulto_cargar', [
+          'uses' => 'MFallecidoAdulto@store', 
+          'as'   => 'fallecido_adulto_cargar'
+        ]);
+        Route::get('/fallecido_adulto_resultado', function () {
+          return view('fallecido_adulto.resultado');
+        });
+        
+        /*
+        * Fin Rutas para Fallecido Adulto
+        */
 /*
 *
 * FIN RUTAS MOTTO
