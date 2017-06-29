@@ -80,16 +80,34 @@ Route::get('/prueba', function () {
     'as' => 'datosInversion'
     ]);
 
+  Route::post('datos', [
+    'uses' => 'inversionesController@store', 
+    'as'    => 'datos'
+            ]);
+
+	Route::post('crearReporteInversion',[
+		'uses' => 'inversionesController@CrearPdfInversion',
+		'as' => 'crearReporteInversion'
+	]);
+
+
+  /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    Route::get('inversionAdulto',[
+    'uses' => 'inversionAdultoController@index',
+    'as' => 'inversionAdulto'
+    ]);
+
+    
+  Route::post('datosAdulto', [
+    'uses' => 'inversionAdultoController@store', 
+    'as'    => 'datosAdulto'
+            ]);
 
 
  Route::get('municipioInversiones/{id}','inversionesController@municipioInversiones');
 
 Route::get('cantonInversiones/{id}','inversionesController@cantonInversiones');
 
-  Route::post('datos', [
-    'uses' => 'inversionesController@store', 
-    'as'    => 'datos'
-            ]);
 
 
 

@@ -11,7 +11,8 @@
         "laravelcollective/html": "^5.2.0",
         "laracasts/flash": "^2.0",
         "intervention/image": "^2.3",
-        "genealabs/bones-flash": "*"
+        "genealabs/bones-flash": "*",
+        "barryvdh/laravel-dompdf": "^0.8.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

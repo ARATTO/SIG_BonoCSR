@@ -24,6 +24,7 @@
 					<div class="panel-body">
 						@include('bones-flash::bones.flash')
 						@include('layouts.partials.flash')
+		{!! Form::open(['action' => 'inversionesController@CrearPdfInversion']) !!}
 				 <div class="col-md-10 col-md-offset-1">
 					<div class="input-group has-info form-inline">
              
@@ -79,6 +80,24 @@
 						
 						
 					</div>
+                <div class="form-group form-inline">
+                    <h3><span class="label label-danger">{{ trans('Descargar Reporte') }}</span><h3>
+                    <button id="pdf" type="submit" class="btn btn-success btn-lg"> {{trans('Descargar PDF')}} </button>
+                </div>   
+
+			<div style="display:none">
+				<span class="input-group-addon" id="fechaInicio">Fecha Inicio</span>
+				<input class="form-control" type="text" name="fechaInicio" value="{{$fechaInicio}}" >
+
+
+				<span class="input-group-addon" id="fechaFin">Fecha Fin</span>
+				<input class="form-control" type="text" name="fechaFin" value="{{$fechaFin}}" >
+
+				<span class="input-group-addon" id="canton">Canton</span>
+				<input class="form-control" type="text" name="canton" value="{{$canton[0]->id}}" >
+
+			</div>				
+					{!!Form::close()!!}	
 				</div>
 			</div>
 		</div>

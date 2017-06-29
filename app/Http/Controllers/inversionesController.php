@@ -130,8 +130,10 @@ class inversionesController extends Controller
             if(count($bene->bitacoraChildDiscapacitado)>0){
                 foreach ($bene->bitacoraChildDiscapacitado as $value) {
                     if(count($value->bono)>0 && $BCD<$meses){
-                        $dineroChildDiscapacitados= $dineroChildDiscapacitados + $value->dineroInvertido;
-                        $BCD = $BCD+1;
+                      	foreach($value->bono as $dinero){
+                            $dineroChildDiscapacitados= $dineroChildDiscapacitados + $dinero->dineroAcumulado;
+                            $BCD = $BCD+1;
+                        }
                     }
                 }                
             }
@@ -177,14 +179,16 @@ class inversionesController extends Controller
         $canton = Canton::where('id',$request->canton)->get();
 
  
- 
-        return view('inversiones.resultadoInversionSalud')->with('dineroChildMenor',$dineroChildMenor)
+        return view('inversiones.resultadoInversionSalud')
+        ->with('dineroChildMenor',$dineroChildMenor)
         ->with('dineroChildEstudiante',$dineroChildEstudiante)
         ->with('dineroChildDiscapacitados',$dineroChildDiscapacitados)
         ->with('dineroEmbarazada',$dineroEmbarazada)
         ->with('fechaInicio',$request->fechaInicio)
         ->with('fechaFin',$request->fechaFin)
         ->with('canton',$canton);  
+
+        
 
 
     }   
@@ -193,7 +197,144 @@ class inversionesController extends Controller
 
     public function show(){
 
+        
+        
+    }
 
+    public function CrearPdfInversion(Request $request){
+
+         //dd($request->all());
+
+        $dineroChildDiscapacitados=0;
+        $dineroChildEstudiante=0;
+        $dineroChildMenor=0;
+        $dineroEmbarazada=0;
+
+        //dd($request->all());
+        $fechaInicio = new DateTime($request->fechaInicio);
+        $fechaFin = new DateTime($request->fechaFin);
+
+        $dias = $fechaInicio->diff($fechaFin);
+
+        $meses = round($dias->days/30);
+
+        $beneficiario = Beneficiario::where('canton_id',$request->canton)
+        ->whereRAW("(tipoBono_id = 1 or tipoBono_id =2)")->get();
+
+      // dd($beneficiario);
+ 
+        foreach ($beneficiario as $bene) {
+            
+            $bene->bitacoraChildDiscapacitado;
+            if(count($bene->bitacoraChildDiscapacitado)>0){
+                foreach ($bene->bitacoraChildDiscapacitado as $value) {
+                    $valor= $value->bono($request->fechaInicio,$request->fechaFin);
+                    $value->bono = $valor;    
+                }                
+            }
+
+            $bene->bitacoraChildEstudiante;
+            if(count($bene->bitacoraChildEstudiante)>0){
+                foreach ($bene->bitacoraChildEstudiante as $value) {
+                    $valor= $value->bono($request->fechaInicio,$request->fechaFin);
+                    $value->bono = $valor;
+
+                    
+                }
+            }
+
+            $bene->bitacoraChildMenor;
+            if(count($bene->bitacoraChildMenor)>0){
+                foreach ($bene->bitacoraChildMenor as $value) {
+                    $valor= $value->bono($request->fechaInicio,$request->fechaFin);
+                    $value->bono = $valor;
+                }
+            }
+
+
+            try{
+                $bene->bitacoraEmbarazada;
+                if(count($bene->bitacoraEmbarazada)>0){
+                foreach ($bene->bitacoraEmbarazada as $value) {
+                    $valor= $value->bono($request->fechaInicio,$request->fechaFin);
+                    $value->bono = $valor;
+                }
+            }
+
+            } catch(\Illuminate\Database\QueryException $ex){
+                dd($ex);
+            }
+            
+
+    }// fin del for
+        $BCD=0;
+        $BCE=0;
+        $BCM=0;
+        $BE =0;
+
+        foreach ($beneficiario as $bene) {
+            
+            if(count($bene->bitacoraChildDiscapacitado)>0){
+                foreach ($bene->bitacoraChildDiscapacitado as $value) {
+                    if(count($value->bono)>0 && $BCD<$meses){
+                        $dineroChildDiscapacitados= $dineroChildDiscapacitados + $value->dineroInvertido;
+                        $BCD = $BCD+1;
+                    }
+                }                
+            }
+
+            if(count($bene->bitacoraChildEstudiante)>0){
+                foreach ($bene->bitacoraChildEstudiante as $value) {
+                    if(count($value->bono)>0 && $BCE<$meses){
+                        $dineroChildEstudiante=$dineroChildEstudiante+ $value->dineroInvertido;
+                        $BCE = $BCE+1;
+                    }
+                    
+                }
+            }
+
+
+            if(count($bene->bitacoraChildMenor)>0){
+                foreach ($bene->bitacoraChildMenor as $value) {
+                    if(count($value->bono)>0 && $BCM<$meses){
+                        $dineroChildMenor = $dineroChildMenor + $value->dineroInvertido;
+                        $BCM = $BCM +1;
+                    }
+
+                }
+            }
+
+           if(count($bene->bitacoraEmbarazada)>0){
+                foreach ($bene->bitacoraEmbarazada as $value) {
+                    if(count($value->bono)>0 && $BE < $meses){
+                        $dineroEmbarazada=$dineroEmbarazada+ $value->dineroInvertido;
+                        $BE = $BE+1;
+                    }
+
+                }
+            }
+
+        $BCD=0;
+        $BCE=0;
+        $BCM=0;
+        $BE =0;
+
+    }// fin del for
+
+        $canton = Canton::where('id',$request->canton)->get();
+        $fechaInicio = $fechaInicio->format('Y-m-d H:i:s');
+        $fechaFin = $fechaFin->format('Y-m-d H:i:s');
+
+        //$view =  \View::make('inversiones.resultadoInversionSalud',compact('dineroChildMenor','dineroChildEstudiante','dineroChildDiscapacitados','dineroEmbarazada','fechaInicio','fechaFin','canton'))->render();
+        $view = \View::make('inversiones.index')->render();
+        //dd($view);
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        //dd($pdf);
+        //return $pdf->download('reporte.pdf');
+
+        return $pdf->download("Reporte Inversion Salud.pdf");
+        
     }
 
 
