@@ -24,7 +24,7 @@
 						@include('bones-flash::bones.flash')
 						@include('layouts.partials.flash')
 
-           {!! Form::open(['action' => 'tacticoController@store']) !!}
+           {!! Form::open(['action' => 'menoresFController@store']) !!}
                            	
             <div class="col-md-11 col-md-offset-1">
                 <h3>

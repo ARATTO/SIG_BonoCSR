@@ -13,7 +13,7 @@ use App\Bono;
 use App\Beneficiario;
 use DateTime;
 
-class tacticoController extends Controller
+class MenoresFController extends Controller
 {
     
     public function index(){
@@ -25,7 +25,8 @@ class tacticoController extends Controller
     		}catch(\PDOException $ex ){
     			
     			Flash::Danger("Error en la conexion");
-    			return view('tactico.menoresFallecidos');
+    			return view('menores.menoresFallecidos'); /*Nombre la carpeta
+                 que tienen las vistas la vista es MenoresFallecidos.php*/
     		}
 
          $departamento->each(function($departamento){
@@ -38,10 +39,11 @@ class tacticoController extends Controller
          });
 
         // dd($departamento);
-        return view('tactico.menoresFallecidos',compact('departamento'));
+        return view('menoresF.menoresFallecidos',compact('departamento'));/*Nombre la carpeta
+                 que tienen las vistas la vista es MenoresFallecidos.php y hace referencia con el depart*/
     }
 
-    public function municipioTactico(Request $request,$id){
+    public function municipioMenoresF(Request $request,$id){/*Se le envia el municipio*/
 
     	if($request->ajax()){
     		$municipio = Municipio::municipios($id);
@@ -49,7 +51,7 @@ class tacticoController extends Controller
     	}
     }
 
-    public function cantonTactico(Request $request,$id){
+    public function cantonMenoresF(Request $request,$id){
 
         if($request->ajax()){
             $canton = Canton::cantones($id);
@@ -176,9 +178,9 @@ class tacticoController extends Controller
 
         $canton = Canton::where('id',$request->canton)->get();
 
+ /*Nombre de la carpeta */
  
- 
-        return view('tactico.resultadomenoresFallecidos')->with('dineroChildMenor',$dineroChildMenor)
+        return view('menoresF.resultadomenoresFallecidos')->with('dineroChildMenor',$dineroChildMenor)
         ->with('dineroChildEstudiante',$dineroChildEstudiante)
         ->with('dineroChildDiscapacitados',$dineroChildDiscapacitados)
         ->with('dineroEmbarazada',$dineroEmbarazada)

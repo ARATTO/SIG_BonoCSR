@@ -92,18 +92,18 @@ Route::get('cantonInversiones/{id}','inversionesController@cantonInversiones');
             ]);
 
 
-Route::get('tactico',[
-    'uses' => 'tacticoController@index',
-    'as' => 'seleccionDatosTacticos'
+Route::get('menores',[ //Nombre de la ruta que se le da en el controller//
+    'uses' => 'menoresFController@index', //nombre del controllador
+    'as' => 'seleccionDatosMenoresF' //se renombra
     ]);
 
-Route::get('municipioTactico/{id}','tacticoController@municipioTactico');
+Route::get('municipioMenoresF/{id}','menoresFController@municipioMenoresF');
 
-Route::get('cantonTactico/{id}','tacticoController@cantonTactico');
+Route::get('cantonMenoresF/{id}','menoresFController@cantonMenoresF');
 
   Route::post('datos', [
-    'uses' => 'tacticoController@store', 
-    'as'    => 'datosTactico'
+    'uses' => 'menoresFController@store', 
+    'as'    => 'datosMenoresF'
             ]);
 
 /*
