@@ -40,7 +40,7 @@ class Canton extends Model
     
     public function municipios()
     {
-        return $this->belongsTo('App\Municipio');
+        return $this->belongsTo('App\Municipio','Municipio_id');
     }
 
     /**
@@ -57,7 +57,7 @@ class Canton extends Model
     }
 
 
-        public static function cantones($id){
+    public static function cantones($id){
         return Canton::where('Municipio_id',$id)->get();
     }
 }

@@ -23,8 +23,9 @@ class InversionAdultoController extends Controller
 	 
     		}catch(\PDOException $ex ){
     			
-    			Flash::Danger("Error en la conexion");
-    			return view('inversiones.inversionSalud');
+                Flash::Danger("Se ha producido un error por favor verifique su conexion, o comuniquese con un tecnico");
+
+                return redirect()->route('inversionAdulto');
     		}
 
          $departamento->each(function($departamento){
@@ -68,7 +69,11 @@ public function store(Request $request){
             }         
 
             } catch(\Illuminate\Database\QueryException $ex){
-                dd($ex);
+               
+    			
+                Flash::Danger("Se ha producido un error por favor verifique su conexion, o comuniquese con un tecnico");
+
+                return redirect()->route('inversionAdulto');
             }
             
 

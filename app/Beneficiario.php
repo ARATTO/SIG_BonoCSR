@@ -53,7 +53,7 @@ class Beneficiario extends Model
     }
     public function titulares()
     {
-        return $this->belongsTo('App\Titular');
+        return $this->belongsTo('App\Titular','Titular_id');
     }
     public function tipoEstados()
     {

@@ -74,7 +74,7 @@ class inversionesController extends Controller
         $beneficiario = Beneficiario::where('canton_id',$request->canton)
         ->whereRAW("(tipoBono_id = 1 or tipoBono_id =2)")->get();
 
-
+        
  
         foreach ($beneficiario as $bene) {
             
@@ -115,7 +115,10 @@ class inversionesController extends Controller
             }
 
             } catch(\Illuminate\Database\QueryException $ex){
-                dd($ex);
+                
+            Flash::Danger("Se ha producido un error por favor verifique su conexion, o comuniquese con un tecnico");
+
+            return redirect()->route('datosInversion');
             }
             
 
@@ -154,6 +157,8 @@ class inversionesController extends Controller
                     if(count($value->bono)>0 && $BCM<$meses){
                         $dineroChildMenor = $dineroChildMenor + $value->dineroInvertido;
                         $BCM = $BCM +1;
+
+                   
                     }
 
                 }
@@ -178,7 +183,6 @@ class inversionesController extends Controller
 
         $canton = Canton::where('id',$request->canton)->get();
 
- 
         return view('inversiones.resultadoInversionSalud')
         ->with('dineroChildMenor',$dineroChildMenor)
         ->with('dineroChildEstudiante',$dineroChildEstudiante)
@@ -262,7 +266,9 @@ class inversionesController extends Controller
             }
 
             } catch(\Illuminate\Database\QueryException $ex){
-                dd($ex);
+                Flash::Danger("Se ha producido un error por favor verifique su conexion, o comuniquese con un tecnico");
+
+                return redirect()->route('datosInversion');
             }
             
 

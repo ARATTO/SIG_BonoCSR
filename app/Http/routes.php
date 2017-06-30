@@ -104,6 +104,43 @@ Route::get('/prueba', function () {
             ]);
 
 
+  /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    Route::get('inversionPromotor',[
+    'uses' => 'inversionPromotorController@index',
+    'as' => 'inversionPromotor'
+    ]);
+
+    
+  Route::post('datosPromotor', [
+    'uses' => 'inversionPromotorController@store', 
+    'as'    => 'datosPromotor'
+            ]);   
+
+	Route::post('crearReportePromotor',[
+		'uses' => 'inversionPromotorController@crearPDF',
+		'as' => 'crearReportePromotor'
+	]);    
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+  Route::get('childMontoCero',[
+    'uses' => 'ChildMontoCeroController@index',
+    'as' => 'childMontoCero'
+    ]);
+
+    
+  Route::post('datosChildMontoCero', [
+    'uses' => 'ChildMontoCeroController@store', 
+    'as'    => 'datosChildMontoCero'
+            ]);   
+
+	Route::post('crearReportePromotor',[
+		'uses' => 'inversionPromotorController@crearPDF',
+		'as' => 'crearReportePromotor'
+	]);    
+
+
+
+
  Route::get('municipioInversiones/{id}','inversionesController@municipioInversiones');
 
 Route::get('cantonInversiones/{id}','inversionesController@cantonInversiones');

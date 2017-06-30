@@ -43,7 +43,7 @@ class BitacoraChildDiscapacitado extends Model
     }
     public function promotores()
     {
-        return $this->belongsTo('App\Promotor');
+        return $this->belongsTo('App\Promotor','Promotor_id')->get();
     }
 
     /**
