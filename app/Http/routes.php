@@ -139,7 +139,7 @@ Route::get('/prueba', function () {
             ]);   
 
 	Route::post('crearReporteMontoCero',[
-		'uses' => 'inversionPromotorController@crearPDF',
+		'uses' => 'ChildMontoCeroController@crearPDF',
 		'as' => 'crearReporteMontoCero'
 	]);    
 

@@ -23,6 +23,8 @@
 					<div class="panel-body">
 						@include('bones-flash::bones.flash')
 						@include('layouts.partials.flash')
+  		{!! Form::open(['action' => 'ChildControlesController@crearPDF']) !!}	
+		  					
 				 <div class="col-md-10 col-md-offset-1">
 					<div class="input-group has-info form-inline">
              
@@ -72,7 +74,7 @@
 									<tr>
 									<td>{{$kid->codigo}}</td>
 									<td>{{$kid->apellidos}}</td>
-									<td>{{$kid->nombre}}</td>
+									<td>{{$kid->nombres}}</td>
 									<td>{{$kid->titulares->apellido}} {{$kid->titulares->nombre}}</td>
 									<td>{{$kid->bitacoraChildMenor[0]->motivoPorNoAsistir}}</td>
 									</tr>
@@ -81,11 +83,25 @@
 								</tbody>
 							</table>
 						
-						
+									
 					</div>
+					              <div class="form-group form-inline">
+                    <h3><span class="label label-danger">{{ trans('Crear PDF') }}</span><h3>
+                    <button id="guardar" type="submit" class="btn btn-success btn-lg"> {{trans('Descargar PDF')}} </button>
+                </div> 
 				</div>
 			</div>
 		</div>
 	</div>
 	</section><!-- /.content -->
+	<div style="display:none"> 
+		<input class="form-control" type="text" name="fechaInicio" value="{{$fechaInicio}}" >
+		<input class="form-control" type="text" name="fechaFin" value="{{$fechaFin}}" >
+	    <input class="form-control" type="text" name="municipio" value="{{$canton[0]->municipios->nombre}}" >
+	    <input class="form-control" type="text" name="canton" value="{{$canton[0]->id}}" >
+
+
+	</div>
+
+	{!!Form::close()!!}	
 @endsection
