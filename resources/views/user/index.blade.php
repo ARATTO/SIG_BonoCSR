@@ -32,13 +32,6 @@
 										<th>Rol</th>
 									</tr>
 								</thead>
-								<tfoot>
-									<tr>
-										<th>Nombre</th>
-										<th>Email</th>
-										<th>Rol</th>
-									</tr>
-								</tfoot>
 								<tbody>
 									@foreach($users as $user)
 										<tr>

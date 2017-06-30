@@ -187,10 +187,10 @@ class inversionesController extends Controller
         ->with('dineroChildMenor',$dineroChildMenor)
         ->with('dineroChildEstudiante',$dineroChildEstudiante)
         ->with('dineroChildDiscapacitados',$dineroChildDiscapacitados)
-        ->with('dineroEmbarazada',$dineroEmbarazada)
-        ->with('fechaInicio',$request->fechaInicio)
-        ->with('fechaFin',$request->fechaFin)
-        ->with('canton',$canton);  
+        ->with('dineroEmbarazada',$dineroEmbarazada)/*resultado de dinero de mujeres emba*/
+        ->with('fechaInicio',$request->fechaInicio)/*Pone la fecha inicio*/
+        ->with('fechaFin',$request->fechaFin)/*pone la fecha fin*/
+        ->with('canton',$canton);  /*Pone el nombre del canton*/
 
         
 

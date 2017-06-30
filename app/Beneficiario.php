@@ -14,7 +14,7 @@ class Beneficiario extends Model
      */
     protected $fillable = [
         'id',
-        'nombre', 
+        'nombres', 
         'apellidos',
         'nombreMadre',
         'nombrePadre',
