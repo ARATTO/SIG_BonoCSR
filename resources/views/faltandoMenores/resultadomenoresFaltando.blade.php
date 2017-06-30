@@ -57,22 +57,22 @@
                  </div>
 
 						
-						<table id="TablaLista" class="table table-striped table-bordered" cellspacing="0" width="100%">
+						<table id="TablaLista" class="table table-striped table-bordered " cellspacing="0" width="70%">
 								<thead>
 									<tr>
 										<th>Codigo</th>
 										<th>Apellidos</th>
 										<th>Nombres</th>
-										<th>Fecha Nacimiento</th>
+										<th>Escuela</th>
 									</tr>
 								</thead>
 								<tbody>
-									@foreach($u1 as $u)
+									@foreach($faltas as $f)
 										<tr>
-											<td>{{$u->codigo}}</td>
-											<td>{{$u->apellidos}}</td>
-                                            <td>{{$u->nombre}}</td>
-                                            <td>{{$u->fechaNacimiento}}</td>
+											<td>{{$f->codigo}}</td>
+											<td>{{$f->apellidos}}</td>
+                                            <td>{{$f->nombres}}</td>
+                                            <td>{{$f->nombre}}</td>
 										</tr>
 									@endforeach
 								</tbody>

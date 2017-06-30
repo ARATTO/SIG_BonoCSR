@@ -78,35 +78,14 @@ class faltandoController extends Controller
 
 
 
-           $u2 = DB::table('beneficiario')
-           ->join('bitacorachilddiscapacitado', 'beneficiario.id', '=', 'bitacorachilddiscapacitado.Beneficiario_id')
-           ->join('bono','bitacorachilddiscapacitado.id','=','bono.BitacoraChildDiscapacitado_id')
-           ->select('beneficiario.codigo','beneficiario.apellidos','beneficiario.nombre','beneficiario.fechaNacimiento')
-           ->where('beneficiario.Canton_id',$request->canton)
-           ->whereRAW("(TipoEstado_id = 1)");
-
-
-
-            $u3 = DB::table('beneficiario')
-           ->join('bitacorachildmenor', 'beneficiario.id', '=', 'bitacorachildmenor.Beneficiario_id')
-           ->join('bono','bitacorachildmenor.id','=','bono.BitacoraChildMenor_id')
-           ->select('beneficiario.codigo','beneficiario.apellidos','beneficiario.nombre','beneficiario.fechaNacimiento')
-           ->where('beneficiario.Canton_id',$request->canton)
-           ->whereRAW("(TipoEstado_id = 1)");
-
-
-
-           
-
-           $u1 =DB::table('beneficiario') 
+           $faltas =DB::table('beneficiario') 
             ->join('bitacorachildestudiante', 'beneficiario.id', '=', 'bitacorachildestudiante.Beneficiario_id')
-            ->join('bono','bitacorachildestudiante.id','=','bono.BitacoraChildEstudiante_id')
-            ->select('beneficiario.codigo','beneficiario.apellidos','beneficiario.nombre','beneficiario.fechaNacimiento')
+            ->join('escuela', 'escuela.id', '=', 'bitacorachildestudiante.Escuela_id')
+            ->select('beneficiario.codigo','beneficiario.apellidos','beneficiario.nombres','escuela.nombre')
             ->where('beneficiario.Canton_id',$request->canton)
-            ->whereRAW("(TipoEstado_id = 1)")
-            ->whereIn('beneficiario.TipoBono_id',[1, 2])
-            ->union($u2)
-            ->union($u3)
+         //   ->whereRAW("(TipoEstado_id = 2 and TipoBono_id=1)")
+          //  ->where('beneficiario.TipoBono_id',1)
+            ->where('bitacorachildestudiante.inasistenciaInjustificada',1)
             ->get();
 
 
@@ -121,7 +100,7 @@ class faltandoController extends Controller
         ->with('fechaFin',$request->fechaFin)/*pone la fecha fin*/
         ->with('municipio',$municipio)
         ->with('canton',$canton)
-        ->with(['u1' => $u1]);
+        ->with(['faltas' => $faltas]);
 
 
     }
