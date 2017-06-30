@@ -9,7 +9,7 @@
                         <li><a href="#">Niños faltando a clases.</a></li>
                         <li><a href="#">Niños fallecitdos por mes.</a></li>
                         <li><a href="#">Niños sin control.</a></li>
-                        <li><a href="#Motto">M-Adultos fallecidos.</a></li>
+                        <li><a href="{{route('fallecido_adulto')}}">Adultos fallecidos.</a></li>
                         <li><a href="#">Niños monto cero.</a></li>
                     </ul>
                 </li>

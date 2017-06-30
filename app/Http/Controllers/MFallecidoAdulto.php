@@ -28,7 +28,7 @@ class MFallecidoAdulto extends Controller
 	        $departamento = Departamento::all();
     	}catch(\PDOException $ex ){
     		Flash::Danger("Error en la conexion");
-    		return view('tit_adulto.index');
+    		return view('fallecido_adulto.index');
     	}
 
         $departamento->each(function($departamento){
@@ -38,7 +38,7 @@ class MFallecidoAdulto extends Controller
          	}
         });
 
-        return view('tit_adulto.index',compact('departamento'));
+        return view('fallecido_adulto.index',compact('departamento'));
     }
 
     /**
@@ -64,31 +64,27 @@ class MFallecidoAdulto extends Controller
 
         $adultos = DB::table('bitacoraadultomayor')
             ->join('beneficiario', 'beneficiario.id' , '=', 'bitacoraadultomayor.Beneficiario_id')
-            ->join('titular', 'titular.id' , '=', 'beneficiario.Titular_id')
             ->join('bono', 'bitacoraadultomayor.id' , '=', 'bono.BitacoraAdultoMayor_id')
-            ->select('titular.id')
-            ->where('beneficiario.Canton_id', $request->canton)
-            
-            ->where('bono.dineroAcumulado', $request->monto)
+            ->select('beneficiario.codigo', 'beneficiario.nombre','beneficiario.apellidos')
+            ->where('beneficiario.TipoEstado_id', 1) // se pone 1 para la consulta necesaria 
+            ->where('beneficiario.TipoBono_id', 3)
             ->whereDate('bono.fechaInicioPeriodo', '<=', $request->fechaInicio)
             ->whereDate('bono.fechaFinPeriodo', '>=', $request->fechaFin)
-            
             ->distinct()
             ->get();
         
         //dd($adultos);
         $cuantos_adultos = count($adultos);
-        
 
-        if($cuantos_adultos <= 0){
-            Flash::info("No hay Titulares asociados a este Canton con esos parametros.");
+        if( $cuantos_adultos <= 0){
+            Flash::info("No hay Adultos Mayores asociados a este Canton con esos parametros.");
             return redirect()->route('fallecido_adulto');
         }
 
-        return view('tit_adulto.resultado')->with([
-            'adultos' => $cuantos_adultos,
+        return view('fallecido_adulto.resultado')->with([
+            'adultos' => $adultos,
+            'cantidad' => $cuantos_adultos,
             'canton' => $canton,
-            'cantidad' => $request->monto,
             'fecha_inicio' => $request->fechaInicio,
             'fecha_fin' => $request->fechaFin,
         ]);
