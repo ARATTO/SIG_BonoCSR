@@ -94,7 +94,7 @@ class MTitularesNE extends Controller
         $total = $cuantas_embarazadas + $cuantos_ninos;
 
         if($total <= 0){
-            Flash::info("No hay Titulares asociados a este Canton con Bonos en Salud.");
+            Flash::info("No hay Titulares asociados a este Canton con esos parametros.");
             return redirect()->route('tit_ne');
         }
 

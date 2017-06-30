@@ -41,8 +41,8 @@
                     </div>	
                     <br>
                     <br>
-                 </div>
-						<table class="table table-striped col-xs-7">
+                </div>
+						<table class="table table-striped">
 							<thead>
 								<tr>
 									<th>Bono Embarazadas</th>
