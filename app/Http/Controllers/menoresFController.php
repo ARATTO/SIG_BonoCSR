@@ -79,7 +79,7 @@ class MenoresFController extends Controller
            $u2 = DB::table('beneficiario')
            ->join('bitacorachilddiscapacitado', 'beneficiario.id', '=', 'bitacorachilddiscapacitado.Beneficiario_id')
            ->join('bono','bitacorachilddiscapacitado.id','=','bono.BitacoraChildDiscapacitado_id')
-           ->select('beneficiario.codigo','beneficiario.apellidos','beneficiario.nombre','beneficiario.fechaNacimiento')
+           ->select('beneficiario.codigo','beneficiario.apellidos','beneficiario.nombres','beneficiario.fechaNacimiento')
            ->where('beneficiario.Canton_id',$request->canton)
            ->whereRAW("(TipoEstado_id = 1)");
 
@@ -88,7 +88,7 @@ class MenoresFController extends Controller
             $u3 = DB::table('beneficiario')
            ->join('bitacorachildmenor', 'beneficiario.id', '=', 'bitacorachildmenor.Beneficiario_id')
            ->join('bono','bitacorachildmenor.id','=','bono.BitacoraChildMenor_id')
-           ->select('beneficiario.codigo','beneficiario.apellidos','beneficiario.nombre','beneficiario.fechaNacimiento')
+           ->select('beneficiario.codigo','beneficiario.apellidos','beneficiario.nombres','beneficiario.fechaNacimiento')
            ->where('beneficiario.Canton_id',$request->canton)
            ->whereRAW("(TipoEstado_id = 1)");
 
@@ -99,7 +99,7 @@ class MenoresFController extends Controller
            $u1 =DB::table('beneficiario') 
             ->join('bitacorachildestudiante', 'beneficiario.id', '=', 'bitacorachildestudiante.Beneficiario_id')
             ->join('bono','bitacorachildestudiante.id','=','bono.BitacoraChildEstudiante_id')
-            ->select('beneficiario.codigo','beneficiario.apellidos','beneficiario.nombre','beneficiario.fechaNacimiento')
+            ->select('beneficiario.codigo','beneficiario.apellidos','beneficiario.nombres','beneficiario.fechaNacimiento')
             ->where('beneficiario.Canton_id',$request->canton)
             ->whereRAW("(TipoEstado_id = 1)")
             ->whereIn('beneficiario.TipoBono_id',[1, 2])

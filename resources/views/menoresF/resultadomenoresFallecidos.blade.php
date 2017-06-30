@@ -71,7 +71,7 @@
 										<tr>
 											<td>{{$u->codigo}}</td>
 											<td>{{$u->apellidos}}</td>
-                                            <td>{{$u->nombre}}</td>
+                                            <td>{{$u->nombres}}</td>
                                             <td>{{$u->fechaNacimiento}}</td>
 										</tr>
 									@endforeach
