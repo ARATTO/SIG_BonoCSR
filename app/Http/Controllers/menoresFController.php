@@ -13,6 +13,7 @@ use App\Bono;
 use App\Beneficiario;
 use DateTime;
 use DB;
+use Carbon\Carbon;
 
 class MenoresFController extends Controller
 {
@@ -69,6 +70,10 @@ class MenoresFController extends Controller
     
         $fechaInicio = new DateTime($request->fechaInicio);
         $fechaFin = new DateTime($request->fechaFin);
+    
+
+
+
 
         $dias = $fechaInicio->diff($fechaFin);
 
@@ -81,8 +86,9 @@ class MenoresFController extends Controller
            ->join('bono','bitacorachilddiscapacitado.id','=','bono.BitacoraChildDiscapacitado_id')
            ->select('beneficiario.codigo','beneficiario.apellidos','beneficiario.nombres','beneficiario.fechaNacimiento')
            ->where('beneficiario.Canton_id',$request->canton)
+           ->where('fechaInicioPeriodo', '<=', Carbon::createFromFormat('Y-m-d', $request->fechaInicio)->toDateString())
+           ->where('fechaFinPeriodo', '>=', Carbon::createFromFormat('Y-m-d', $request->fechaFin)->toDateString())
            ->whereRAW("(TipoEstado_id = 1)");
-
 
 
             $u3 = DB::table('beneficiario')
@@ -90,7 +96,9 @@ class MenoresFController extends Controller
            ->join('bono','bitacorachildmenor.id','=','bono.BitacoraChildMenor_id')
            ->select('beneficiario.codigo','beneficiario.apellidos','beneficiario.nombres','beneficiario.fechaNacimiento')
            ->where('beneficiario.Canton_id',$request->canton)
-           ->whereRAW("(TipoEstado_id = 1)");
+           ->whereRAW("(TipoEstado_id = 1)")
+           ->where('fechaInicioPeriodo', '<=', Carbon::createFromFormat('Y-m-d', $request->fechaInicio)->toDateString())
+           ->where('fechaFinPeriodo', '>=', Carbon::createFromFormat('Y-m-d', $request->fechaFin)->toDateString());
 
 
 
@@ -103,6 +111,8 @@ class MenoresFController extends Controller
             ->where('beneficiario.Canton_id',$request->canton)
             ->whereRAW("(TipoEstado_id = 1)")
             ->whereIn('beneficiario.TipoBono_id',[1, 2])
+             ->where('fechaInicioPeriodo', '<=', Carbon::createFromFormat('Y-m-d', $request->fechaInicio)->toDateString())
+           ->where('fechaFinPeriodo', '>=', Carbon::createFromFormat('Y-m-d', $request->fechaFin)->toDateString())
             ->union($u2)
             ->union($u3)
             ->get();

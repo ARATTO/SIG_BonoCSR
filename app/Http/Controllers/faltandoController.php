@@ -13,6 +13,7 @@ use App\Bitacorachildestudiante;
 use App\bitacorachilddiscapacitado;
 use App\BitacoraChildMenor;
 use DateTime;
+use Carbon\Carbon;
 
 use Illuminate\Support\Facades\DB;
 
@@ -81,10 +82,13 @@ class faltandoController extends Controller
            $faltas =DB::table('beneficiario') 
             ->join('bitacorachildestudiante', 'beneficiario.id', '=', 'bitacorachildestudiante.Beneficiario_id')
             ->join('escuela', 'escuela.id', '=', 'bitacorachildestudiante.Escuela_id')
+            ->join('bono','bono.Bitacorachildestudiante_id','=','bitacorachildestudiante.id')
             ->select('beneficiario.codigo','beneficiario.apellidos','beneficiario.nombres','escuela.nombre')
+            ->distinct()
             ->where('beneficiario.Canton_id',$request->canton)
-         //   ->whereRAW("(TipoEstado_id = 2 and TipoBono_id=1)")
-          //  ->where('beneficiario.TipoBono_id',1)
+            ->whereRAW("(TipoEstado_id = 2 and TipoBono_id=1)")
+            ->where('bono.fechaInicioPeriodo', '<=', Carbon::createFromFormat('Y-m-d', $request->fechaInicio)->toDateString())
+            ->where('bono.fechaFinPeriodo', '>=', Carbon::createFromFormat('Y-m-d', $request->fechaFin)->toDateString())
             ->where('bitacorachildestudiante.inasistenciaInjustificada',1)
             ->get();
 
