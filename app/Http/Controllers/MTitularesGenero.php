@@ -71,16 +71,22 @@ class MTitularesGenero extends Controller
             ->join('beneficiario', 'beneficiario.Titular_id', '=', 'titular.id')
             ->select('titular.genero','titular.fechaNacimiento')
             ->where('beneficiario.Canton_id', $canton)
+            ->distinct()
             ->get();
+        //dd(count($titular));
+        if(count($titular) == 0){
+            Flash::info("No hay Titulares asociados a este Canton.");
         
+            return redirect()->route('tit_genero');
+        }
         foreach($titular as $tit){           
             if( strcmp ( $tit->genero , 'm' ) == 0 || strcmp ( $tit->genero , 'M' ) == 0 ){
-                $edad =  $this->calcular_edad($bene->fechaNacimiento);
+                $edad =  $this->calcular_edad($tit->fechaNacimiento);
                 //Restriccion de Edad para Hombre
                 if(  $edad >= $edad_inicio && $edad <= $edad_fin )
                     $hombre = $hombre + 1;
             }else{
-                $edad =  $this->calcular_edad($bene->fechaNacimiento);
+                $edad =  $this->calcular_edad($tit->fechaNacimiento);
                 //Restriccion de Edad para Hombre
                 if(  $edad >= $edad_inicio && $edad <= $edad_fin )
                     $mujer = $mujer +1;
