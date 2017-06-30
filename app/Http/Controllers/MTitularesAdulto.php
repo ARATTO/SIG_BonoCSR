@@ -5,6 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Laracasts\Flash\Flash;
+use App\Departamento;
+use App\Canton;
+use App\Municipio;
+use App\Bono;
+use App\Beneficiario;
+use App\Titular;
+use DateTime;
+use DB;
 
 class MTitularesAdulto extends Controller
 {
@@ -15,7 +24,7 @@ class MTitularesAdulto extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
