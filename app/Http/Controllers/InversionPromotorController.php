@@ -59,7 +59,7 @@ class InversionPromotorController extends Controller
         $beneficiario = Beneficiario::where('canton_id',$request->canton)
         ->whereRAW("(tipoBono_id = 1 or tipoBono_id =2 or tipoBono_id=3)")->get();
 
-        $promotores;
+        $promotores=null;
 
 try{
 

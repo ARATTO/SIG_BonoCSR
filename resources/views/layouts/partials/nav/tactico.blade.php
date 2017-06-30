@@ -8,7 +8,7 @@
                     <ul class="treeview-menu">
                         <li><a href="#">Niños faltando a clases.</a></li>
                         <li><a href="#">Niños fallecitdos por mes.</a></li>
-                        <li><a href="#">Niños sin control.</a></li>
+                        <li><a href="{{route('childControles')}}">Niños sin control.</a></li>
                         <li><a href="#">Adultos fallecidos.</a></li>
                         <li><a href="{{route('childMontoCero')}}">Niños monto cero.</a></li>
                     </ul>

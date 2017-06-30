@@ -14,10 +14,10 @@ use App\Beneficiario;
 use DateTime;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class ChildMontoCeroController extends Controller
+class ChildControlesController extends Controller
 {
-    public function index(){
 
+    public function index(){
 
     	try{
 	        	$departamento = Departamento::all();
@@ -25,7 +25,7 @@ class ChildMontoCeroController extends Controller
     		}catch(\PDOException $ex ){
     			
     			Flash::Danger("Error en la conexion");
-    			return view('inversiones.inversionSalud');
+    			return redirect()->route('childControles');
     		}
 
          $departamento->each(function($departamento){
@@ -38,11 +38,12 @@ class ChildMontoCeroController extends Controller
          });
 
         // dd($departamento);
-        return view('ChildMenores.ChildMontoCero',compact('departamento'));
+        return view('ChildMenores.ChildFaltoCOntroles',compact('departamento'));
     }
 
+
     public function store(Request $request){
-               //dd($request->all());
+               
         $fechaInicio = new DateTime($request->fechaInicio);
         $fechaFin = new DateTime($request->fechaFin);
 
@@ -59,87 +60,41 @@ class ChildMontoCeroController extends Controller
         foreach ($beneficiario as $bene) {
         
             $bene->titulares;
-            
-            $bene->bitacoraChildDiscapacitado;
-            if(count($bene->bitacoraChildDiscapacitado)>0){
-                foreach ($bene->bitacoraChildDiscapacitado as $value) {
-                    $valor= $value->bono($request->fechaInicio,$request->fechaFin);
-                    $value->bono = $valor;    
-                }                
-            }
-
-            $bene->bitacoraChildEstudiante;
-            if(count($bene->bitacoraChildEstudiante)>0){
-                foreach ($bene->bitacoraChildEstudiante as $value) {
-                    $valor= $value->bono($request->fechaInicio,$request->fechaFin);
-                    $value->bono = $valor;         
-                }
-            }
 
             $bene->bitacoraChildMenor;
-            if(count($bene->bitacoraChildMenor)>0){
+                if(count($bene->bitacoraChildMenor)>0){
                 foreach ($bene->bitacoraChildMenor as $value) {
                     $valor= $value->bono($request->fechaInicio,$request->fechaFin);
                     $value->bono = $valor;
                 }
-            }
+            }           
 
         }//fin del for each
-
+      
         $kids=null;
         $i=0;
-        $BCD=0;
-        $BCE=0;
         $BCM=0;
+    
     foreach ($beneficiario as $bene) {
-            
-            if(count($bene->bitacoraChildDiscapacitado)>0){
-                foreach ($bene->bitacoraChildDiscapacitado as $value) {
-                    if(count($value->bono)>0 && $BCD<$meses){
-            			foreach($value->bono as $dinero){
-                            if($dinero->Acumulado == 0){
-                                $kids[$i] = $bene; 
-                                $BCD = $BCD+1;
-                                $i = $i+1;
-                            }	
-                        	
-						}     
+
+           if(count($bene->bitacoraChildMenor)>0){
+                foreach ($bene->bitacoraChildMenor as $value) {
+                    if($value->asistio ==0 && $BCM < $meses){
+                        $kids[$i] = $bene;
+                        $BCM = $BCM+1;
+                        $i=$i+1;
                     }
-                    
-                }                
-            }
 
-            if(count($bene->bitacoraChildEstudiante)>0){
-                foreach ($bene->bitacoraChildEstudiante as $value) {
-                   if($value->dineroInvertido == 0 && $BCE<$meses){
-                       $kids[$i] = $bene;
-                       $BCE = $BCE+1;
-                       $i = $i+1;
-                   }
-                    
                 }
-            }
+           }    
 
-
-            if(count($bene->bitacoraChildMenor)>0){
-                foreach ($bene->bitacoraChildMenor as $value) {//$BCM<$meses
-                    if($value->dineroInvertido == 0 && $BCM<$meses){
-                       $kids[$i] = $bene;
-                       $BCM = $BCM+1;
-                       $i = $i+1;
-                   }
-                }
-            }
-
-
-        $BCD=0;
-        $BCE=0;
         $BCM=0;
 
 
     }// fin del for
 
-    $kidsCero=null;;
+    
+    $kidsCero;
 
        if(count($kids)>0){
             for($i=0;$i<count($kids)-1;$i++){
@@ -159,13 +114,7 @@ class ChildMontoCeroController extends Controller
         if($kids[$i]->id != $id_p){
             $id_p = $kids[$i]->id;
             $kidsCero[$k] = $kids[$i];
-            if(count ($kids[$i]->bitacoraChildDiscapacitado)>0){
-                $kidsCero[$k]->bitacora = $kids[$i]->bitacoraChildDiscapacitado;
-
-            }elseif(count($kids[$i]->bitacoraChildEstudiante)>0){
-                $kidsCero[$k]->bitacora = $kids[$i]->bitacoraChildEstudiante;
-
-            }elseif(count($kids[$i]->bitacoraChildMenor)>0){
+            if(count($kids[$i]->bitacoraChildMenor)>0){
                 $kidsCero[$k]->bitacora = $kids[$i]->bitacoraChildMenor;
             }
             $k=$k+1;
@@ -178,7 +127,7 @@ class ChildMontoCeroController extends Controller
        }else{
           Flash::Warning("No hay niños con monto cero");
 
-        return redirect()->route('childMontoCero');
+        return redirect()->route('childControles');
     }
 
     //dd($kidsCero);
@@ -187,7 +136,7 @@ class ChildMontoCeroController extends Controller
             			
           Flash::Danger("Se ha producido un error por favor verifique su conexion, o comuniquese con un tecnico");
 
-            return redirect()->route('childMontoCero');
+           return redirect()->route('childControles');
         }
 
 
@@ -206,7 +155,7 @@ class ChildMontoCeroController extends Controller
         $paginatedItems->setPath($request->url());    
 
 
-        
+        //dd($kids);
 
         $canton = Canton::where('id',$request->canton)->get();
 
@@ -216,14 +165,13 @@ class ChildMontoCeroController extends Controller
 
 
  
-        return view('ChildMenores.ResultadoChildMontoCero')
+        return view('ChildMenores.ResultadoChildControles')
         ->with('kidsCero',$paginatedItems)
         ->with('fechaInicio',$request->fechaInicio)
         ->with('fechaFin',$request->fechaFin)
         ->with('canton',$canton);  
 
     }//final del store
-
 
 
 }

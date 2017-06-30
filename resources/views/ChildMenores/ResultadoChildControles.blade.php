@@ -4,7 +4,7 @@
 @extends('layouts.app')
 <!-- TEXTO DEL HEADER -->
 @section('htmlheader_title')
-	Resultado niños con monto cero
+	Resultado niños que no fueron llevados a los controles
 @endsection
 
 
@@ -19,7 +19,7 @@
 			<div class="col-md-10 col-md-offset-1">
 				<div class="panel panel-default">
                     <!-- AQUI DEBEN AGREGAR EL MENSAJE QUE QUIERAN EN EL PANEL HEAD -->
-					<div class="panel-heading">Niños con monto cero</div>
+					<div class="panel-heading">Niños que no fueron llevados a los controles</div>
 					<div class="panel-body">
 						@include('bones-flash::bones.flash')
 						@include('layouts.partials.flash')
@@ -74,13 +74,7 @@
 									<td>{{$kid->apellidos}}</td>
 									<td>{{$kid->nombre}}</td>
 									<td>{{$kid->titulares->apellido}} {{$kid->titulares->nombre}}</td>
-									@if(count($kid->bitacoraChildMenor)>0)
-										<td>{{$kid->bitacoraChildMenor[0]->motivoPorNoAsistir}}</td>
-									@else
-										@if(count($kid->bitacoraChildEstudiante)>0))
-										<td>{{$kid->bitacoraChildEstudiante[0]->motivoPorInasistencia}}</td>
-										@endif
-									@endif
+									<td>{{$kid->bitacoraChildMenor[0]->motivoPorNoAsistir}}</td>
 									</tr>
 								@endforeach
 				

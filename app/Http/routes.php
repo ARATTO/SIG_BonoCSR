@@ -133,9 +133,26 @@ Route::get('/prueba', function () {
     'as'    => 'datosChildMontoCero'
             ]);   
 
-	Route::post('crearReportePromotor',[
+	Route::post('crearReporteMontoCero',[
 		'uses' => 'inversionPromotorController@crearPDF',
-		'as' => 'crearReportePromotor'
+		'as' => 'crearReporteMontoCero'
+	]);    
+
+  /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+  Route::get('childControles',[
+    'uses' => 'ChildControlesController@index',
+    'as' => 'childControles'
+    ]);
+
+    
+  Route::post('datosChildControles', [
+    'uses' => 'ChildControlesController@store', 
+    'as'    => 'datosChildControles'
+            ]);   
+
+	Route::post('crearReporteControles',[
+		'uses' => 'ChildControlesController@crearPDF',
+		'as' => 'crearReporteControles'
 	]);    
 
 
