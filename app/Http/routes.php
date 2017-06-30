@@ -207,7 +207,7 @@ Route::get('municipiofaltando/{id}','faltandoController@municipiofaltando');
 
 Route::get('cantonfaltando/{id}','faltandoController@cantonfaltando');
 
-  Route::post('datosmenores', [
+  Route::post('datosmenoresFaltando', [
     'uses' => 'faltandoController@store', 
     'as'    => 'datosFaltando'
             ]);

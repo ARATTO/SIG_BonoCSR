@@ -77,22 +77,7 @@ class faltandoController extends Controller
         $meses = round($dias->days/30);
 
 
-    //   $u1 = Beneficiario::where('Canton_id',$request->canton)->get();
-        
 
-/*select codigo,apellidos,nombre,fechaNacimiento from bitacorachildestudiante,beneficiario,bono
-where TipoEstado_id=1 and TipoBono_id in(1,2) and bitacorachildestudiante.Beneficiario_id=beneficiario.id and beneficiario.Canton_id=80101 and bono.BitacoraChildEstudiante_id=bitacorachildestudiante.id and bono.fechaInicioPeriodo='2017-03-01' and bono.fechaFinPeriodo='2017-06-30'
-
-
-UNION
-
-select codigo,apellidos,nombre,fechaNacimiento from bitacorachilddiscapacitado,beneficiario,bono where bitacorachilddiscapacitado.Beneficiario_id=beneficiario.id and beneficiario.TipoEstado_id=1 and bono.BitacoraChildDiscapacitado_id=bitacorachilddiscapacitado.id and bono.fechaInicioPeriodo='2017-03-01' and bono.fechaFinPeriodo='2017-06-30'
- 
-UNION
-
-select codigo,apellidos,nombre,fechaNacimiento from bitacorachildmenor,beneficiario,bono where bitacorachildmenor.Beneficiario_id=beneficiario.id and beneficiario.TipoEstado_id=1 and bono.BitacoraChildMenor_id=bitacorachildmenor.id and bono.fechaInicioPeriodo='2017-03-01' and bono.fechaFinPeriodo='2017-06-30'
-
-*/
            $u2 = DB::table('beneficiario')
            ->join('bitacorachilddiscapacitado', 'beneficiario.id', '=', 'bitacorachilddiscapacitado.Beneficiario_id')
            ->join('bono','bitacorachilddiscapacitado.id','=','bono.BitacoraChildDiscapacitado_id')

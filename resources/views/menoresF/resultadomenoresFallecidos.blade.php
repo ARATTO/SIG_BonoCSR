@@ -4,7 +4,7 @@
 @extends('layouts.app')
 <!-- TEXTO DEL HEADER -->
 @section('htmlheader_title')
-	Menores Fallecidos
+	Menores fallecidos
 @endsection
 
 
@@ -19,7 +19,7 @@
 			<div class="col-md-10 col-md-offset-1">
 				<div class="panel panel-default">
                     <!-- AQUI DEBEN AGREGAR EL MENSAJE QUE QUIERAN EN EL PANEL HEAD -->
-					<div class="panel-heading">Menores fallecidos por municipio y canton po periodo seleccionado</div>
+					<div class="panel-heading">Menores fallecidos por municipio y canton por periodo asignado</div>
 					<div class="panel-body">
 						@include('bones-flash::bones.flash')
 						@include('layouts.partials.flash')
@@ -30,8 +30,8 @@
                         <table>
                             <tbody>
 	                            <tr>
-	                            	<td>Fecha Inicio:</td>
-		                            <td>Fecha Fin:</td>
+	                             	<td>Fecha Inicio</td>
+	                             	<td>Fecha Fin</td>
 	                                <td>Municipio:</td>
 		                            <td>Canton:</td>
 
@@ -49,6 +49,7 @@
                             </tbody>
                         </table>
 
+
                       
                     </div>	
                     <br>
@@ -56,20 +57,26 @@
                  </div>
 
 						
-						<table class="table table-striped">
-							<thead>
-								<tr>
-									<th>Codigo</th>
-									<th>Apellido</th>
-									<th>Nombre</th>
-									<th>Fecha Nacimiento</th>
-								</tr>
-							</thead>
-							<tbody>
-					
-								
-							</tbody>
-						</table>
+						<table id="TablaLista" class="table table-striped table-bordered" cellspacing="0" width="100%">
+								<thead>
+									<tr>
+										<th>Codigo</th>
+										<th>Apellidos</th>
+										<th>Nombres</th>
+										<th>Fecha Nacimiento</th>
+									</tr>
+								</thead>
+								<tbody>
+									@foreach($u1 as $u)
+										<tr>
+											<td>{{$u->codigo}}</td>
+											<td>{{$u->apellidos}}</td>
+                                            <td>{{$u->nombre}}</td>
+                                            <td>{{$u->fechaNacimiento}}</td>
+										</tr>
+									@endforeach
+								</tbody>
+							</table>
 						
 						
 					</div>
