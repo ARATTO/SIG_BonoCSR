@@ -4,7 +4,7 @@
 @extends('layouts.app')
 <!-- TEXTO DEL HEADER -->
 @section('htmlheader_title')
-	Niños fallecidos
+	Menores faltando clases
 @endsection
 
 
@@ -19,12 +19,12 @@
 			<div class="col-md-10 col-md-offset-1">
 				<div class="panel panel-default">
                     <!-- AQUI DEBEN AGREGAR EL MENSAJE QUE QUIERAN EN EL PANEL HEAD -->
-					<div class="panel-heading"> Menores Fallecidos</div>
+					<div class="panel-heading"> Menores Faltando a clases  </div>
 					<div class="panel-body">
 						@include('bones-flash::bones.flash')
 						@include('layouts.partials.flash')
 
-           {!! Form::open(['action' => 'menoresFController@store']) !!}
+           {!! Form::open(['action' => 'faltandoController@store']) !!}
                            	
             <div class="col-md-11 col-md-offset-1">
                 <h3>

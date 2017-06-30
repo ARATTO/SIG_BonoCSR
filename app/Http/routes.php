@@ -198,6 +198,21 @@ Route::get('cantonMenoresF/{id}','menoresFController@cantonMenoresF');
 
 
 
+Route::get('faltando',[ //Nombre de la ruta que se le da en el controller//
+    'uses' => 'faltandoController@index', //nombre del controllador
+    'as' => 'seleccionDatosFaltando' //se renombra
+    ]);
+
+Route::get('municipiofaltando/{id}','faltandoController@municipiofaltando');
+
+Route::get('cantonfaltando/{id}','faltandoController@cantonfaltando');
+
+  Route::post('datosmenores', [
+    'uses' => 'faltandoController@store', 
+    'as'    => 'datosFaltando'
+            ]);
+
+
 
 
 

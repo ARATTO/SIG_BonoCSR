@@ -63,4 +63,7 @@ class BitacoraChildMenor extends Model
     {
         return $this->hasMany('App\Bono','BitacoraChildMenor_id')->whereRAW("DATE_FORMAT('{$fechaInicio}', '%y-%m-%d') >= fechaInicioPeriodo and  DATE_FORMAT('{$fechaFin}', '%y-%m-%d') <= fechaFinPeriodo")->get();
     }
+
+
+    
 }

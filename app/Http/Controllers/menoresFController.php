@@ -26,7 +26,7 @@ class MenoresFController extends Controller
     			
     			Flash::Danger("Error en la conexion");
     			return view('menores.menoresFallecidos'); /*Nombre la carpeta
-                 que tienen las vistas la vista es MenoresFallecidos.php*/
+                 que tienen las vistas la vista es menoresFallecidos.php*/
     		}
 
          $departamento->each(function($departamento){
