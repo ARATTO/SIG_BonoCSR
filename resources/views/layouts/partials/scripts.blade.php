@@ -119,7 +119,7 @@
 <script type="text/javascript">
 
 
-$("#departamento").change(event => {
+$("#departamento").click(event => {
   $.get(`municipioInversiones/${event.target.value}`, function(res, sta){
       
       $("municipio").empty();
@@ -133,7 +133,7 @@ $("#departamento").change(event => {
 });
 
 
-$("#municipio").change(event => {
+$("#municipio").click(event => {
   $.get(`cantonInversiones/${event.target.value}`, function(res, sta){
       console.log(res);
       $("canton").empty();
