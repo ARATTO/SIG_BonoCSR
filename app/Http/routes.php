@@ -86,7 +86,7 @@ Route::get('/prueba', function () {
             ]);
 
 	Route::post('crearReporteInversion',[
-		'uses' => 'inversionesController@CrearPdfInversion',
+		'uses' => 'inversionesController@crearPDF',
 		'as' => 'crearReporteInversion'
 	]);
 
@@ -102,6 +102,11 @@ Route::get('/prueba', function () {
     'uses' => 'inversionAdultoController@store', 
     'as'    => 'datosAdulto'
             ]);
+
+	Route::post('crearReporteAdulto',[
+		'uses' => 'inversionAdultoController@crearPDF',
+		'as' => 'crearReporteAdulto'
+	]);               
 
 
   /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/

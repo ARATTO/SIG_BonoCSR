@@ -24,7 +24,7 @@
 					<div class="panel-body">
 						@include('bones-flash::bones.flash')
 						@include('layouts.partials.flash')
-		{!! Form::open(['action' => 'inversionesController@CrearPdfInversion']) !!}
+		{!! Form::open(['action' => 'inversionesController@crearPDF']) !!}
 				 <div class="col-md-10 col-md-offset-1">
 					<div class="input-group has-info form-inline">
              
@@ -86,15 +86,20 @@
                 </div>   
 
 			<div style="display:none">
-				<span class="input-group-addon" id="fechaInicio">Fecha Inicio</span>
+				
 				<input class="form-control" type="text" name="fechaInicio" value="{{$fechaInicio}}" >
 
-
-				<span class="input-group-addon" id="fechaFin">Fecha Fin</span>
 				<input class="form-control" type="text" name="fechaFin" value="{{$fechaFin}}" >
 
-				<span class="input-group-addon" id="canton">Canton</span>
-				<input class="form-control" type="text" name="canton" value="{{$canton[0]->id}}" >
+				<input class="form-control" type="text" name="canton" value="{{$canton[0]->nombre}}" >
+
+				<input class="form-control" type="text" name="dineroChildMenor" value="{{$dineroChildMenor}}" >
+
+				<input class="form-control" type="text" name="dineroChildEstudiante" value="{{$dineroChildEstudiante}}" >
+
+				<input class="form-control" type="text" name="dineroChildDiscapacitados" value="{{$dineroChildDiscapacitados}}" >
+
+				<input class="form-control" type="text" name="dineroEmbarazada" value="{{$dineroEmbarazada}}" >
 
 			</div>				
 					{!!Form::close()!!}	

@@ -24,7 +24,7 @@
 					<div class="panel-body">
 						@include('bones-flash::bones.flash')
 						@include('layouts.partials.flash')
-  		{!! Form::open(['action' => 'inversionesController@store']) !!}						
+  		{!! Form::open(['action' => 'inversionAdultoController@crearPDF']) !!}						
 				 <div class="col-md-10 col-md-offset-1">
 					<div class="input-group has-info form-inline">
              
@@ -70,8 +70,19 @@
 					</div>
                 <div class="form-group form-inline">
                     <h3><span class="label label-danger">{{ trans('Crear PDF') }}</span><h3>
-                    <button id="guardar" disabled type="submit" class="btn btn-success btn-lg"> {{trans('Procesar')}} </button>
+                    <button id="guardar" type="submit" class="btn btn-success btn-lg"> {{trans('Descargar PDF')}} </button>
                 </div>   
+
+			<div style="display:none">
+		     	  <input class="form-control" type="text" name="fechaInicio" value="{{$fechaInicio}}" >
+
+               	<input class="form-control" type="text" name="fechaFin" value="{{$fechaFin}}">
+
+                 <input class="form-control" type="text" name="canton" value="{{$canton[0]->nombre}}">  
+
+				 <input type="text" name="dineroAdultoMayor" value="{{$dineroAdultoMayor}}">
+
+				</div>
 
 
 					{!!Form::close()!!}			

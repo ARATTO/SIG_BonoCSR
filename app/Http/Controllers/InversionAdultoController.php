@@ -113,6 +113,20 @@ public function store(Request $request){
     }   
 	
 
+     public function crearPDF(Request $request){
+        $view = \View::make('inversiones.reporteAdultoMayor')
+        ->with('fechaInicio',$request->fechaInicio)
+        ->with('fechaFin',$request->fechaFin)
+        ->with('canton',$request->canton)
+        ->with('dineroAdultoMayor',$request->dineroAdultoMayor)
+        ->render();
+     
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+     
+        return $pdf->download("Reporte Inversion Adulto Mayor.pdf");
+ }
+
 
     
         

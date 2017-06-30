@@ -247,15 +247,18 @@ try{
 }
 
 
- public function crearPDF(){
-      //$view =  \View::make('inversiones.resultadoInversionSalud',compact('dineroChildMenor','dineroChildEstudiante','dineroChildDiscapacitados','dineroEmbarazada','fechaInicio','fechaFin','canton'))->render();
-        $view = \View::make('inversiones.reportePromotores')->render();
-        //dd($view);
+ public function crearPDF(Request $request){
+        //dd($request->all());
+        $view = \View::make('inversiones.reportePromotores')
+        ->with('fechaInicio',$request->fechaInicio)
+        ->with('fechaFin',$request->fechaFin)
+        ->with('canton',$request->canton)
+        ->with('dineroPromotor',$request->dineroPromotor)
+        ->render();
+     
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($view);
-        //dd($pdf);
-        //return $pdf->download('reporte.pdf');
-
+     
         return $pdf->download("Reporte Inversion Salud.pdf");
  }
 

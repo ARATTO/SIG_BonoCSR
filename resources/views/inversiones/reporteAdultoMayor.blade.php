@@ -47,7 +47,7 @@
 			<div class="col-md-10 col-md-offset-1">
 				<div class="panel panel-default">
                     <!-- AQUI DEBEN AGREGAR EL MENSAJE QUE QUIERAN EN EL PANEL HEAD -->
-					<div class="panel-heading"> Inversion en Promotores </div>
+					<div class="panel-heading">  Inversion en el programa adulto mayor </div>
 					<div class="panel-body">
 
 				 <div class="col-md-10 col-md-offset-1">
@@ -84,13 +84,13 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td>Dinero invertido en Promotores</td>
-									<td>$ {{$dineroPromotor}} <td>
+									<td>Programa adulto mayor</td>
+									<td>$ {{$dineroAdultoMayor}} <td>
 								</tr>
 
 								<tr>
 									<td><b>TOTAL</b></td>
-									<td><B>$ {{$dineroPromotor}}</B></td>
+									<td><B>$ {{$dineroAdultoMayor}}</B></td>
 								</tr>
 								
 							</tbody>
