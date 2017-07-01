@@ -348,7 +348,7 @@ class EtlController extends Controller
                         try{
                             $beneficiario = new Beneficiario();
                           $beneficiario->id = $fila->id_beneficiario  ;
-                           $beneficiario->nombre = $fila->nombre_beneficiario  ;
+                           $beneficiario->nombres = $fila->nombre_beneficiario  ;
                            $beneficiario->apellidos = $fila->apellidos_beneficiario   ;
                            $beneficiario->nombremadre = $fila->nombremadre_beneficiario     ;
                            $beneficiario->nombrepadre = $fila->nombrepadre_beneficiario     ;
