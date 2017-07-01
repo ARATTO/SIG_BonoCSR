@@ -271,7 +271,10 @@ Route::get('cantonMenoresF/{id}','menoresFController@cantonMenoresF');
     'as'    => 'datosMenoresF'
             ]);
 
-
+	Route::post('crearReporteKidsFallecidos',[
+		'uses' => 'menoresFController@crearPDF',
+		'as' => 'crearReporteKidsFallecidos'
+	]);    
 
 
 
@@ -279,6 +282,11 @@ Route::get('faltando',[ //Nombre de la ruta que se le da en el controller//
     'uses' => 'faltandoController@index', //nombre del controllador
     'as' => 'seleccionDatosFaltando' //se renombra
     ]);
+
+Route::post('crearReporteKidsFaltando',[
+		'uses' => 'faltandoController@crearPDF',
+		'as' => 'crearReporteKidsFallecidos'
+	]);    
 
 Route::get('municipiofaltando/{id}','faltandoController@municipiofaltando');
 

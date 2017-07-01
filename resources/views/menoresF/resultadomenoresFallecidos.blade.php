@@ -23,6 +23,7 @@
 					<div class="panel-body">
 						@include('bones-flash::bones.flash')
 						@include('layouts.partials.flash')
+  		{!! Form::open(['action' => 'menoresFController@crearPDF']) !!}							
 				 <div class="col-md-10 col-md-offset-1">
 					<div class="input-group has-info form-inline">
              
@@ -77,7 +78,10 @@
 									@endforeach
 								</tbody>
 							</table>
-						
+				<div class="form-group form-inline">
+                    <h3><span class="label label-danger">{{ trans('Crear PDF') }}</span><h3>
+                    <button id="guardar" type="submit" class="btn btn-success btn-lg"> {{trans('Descargar PDF')}} </button>
+                </div> 
 						
 					</div>
 				</div>
@@ -85,4 +89,12 @@
 		</div>
 	</div>
 	</section><!-- /.content -->
+
+	<div style="display:none">
+	   	<td><input class="form-control" type="text" name="fechaInicio" value="{{$fechaInicio}}"></td>
+		<td><input class="form-control" type="text" name="fechaFin" value="{{$fechaFin}}" ></td>
+		<td><input class="form-control" type="text" name="municipio" value="{{$municipio[0]->id}}"></td>
+		<td><input class="form-control" type="text" name="canton" value="{{$canton[0]->id}}"></td>
+	</div>
+	{!!Form::close()!!}	
 @endsection
