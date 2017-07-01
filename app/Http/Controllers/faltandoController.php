@@ -83,7 +83,7 @@ class faltandoController extends Controller
             ->join('bitacorachildestudiante', 'beneficiario.id', '=', 'bitacorachildestudiante.Beneficiario_id')
             ->join('escuela', 'escuela.id', '=', 'bitacorachildestudiante.Escuela_id')
             ->join('bono','bono.Bitacorachildestudiante_id','=','bitacorachildestudiante.id')
-            ->select('beneficiario.codigo','beneficiario.apellidos','beneficiario.nombres','escuela.nombre')
+            ->select('beneficiario.codigo','beneficiario.apellidos','beneficiario.nombres','escuela.nombre','bitacorachildestudiante.motivoPorInasistencias')
             ->distinct()
             ->where('beneficiario.Canton_id',$request->canton)
             ->whereRAW("(TipoEstado_id = 2 and TipoBono_id=1)")
@@ -92,14 +92,13 @@ class faltandoController extends Controller
             ->where('bitacorachildestudiante.inasistenciaInjustificada',1)
             ->get();
 
+
     if(count($faltas)==0)  {
                			
           Flash::Warning("No hay niños Faltando a clases");
 
            return redirect()->route('seleccionDatosFaltando');
          }
-
-
 
 
         return view('faltandoMenores.resultadomenoresFaltando')

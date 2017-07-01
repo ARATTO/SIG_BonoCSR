@@ -84,6 +84,7 @@
 										<th>Apellidos</th>
 										<th>Nombres</th>
 										<th>Escuela</th>
+										<th>Motivo Inasistencia</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -93,6 +94,7 @@
 											<td>{{$f->apellidos}}</td>
                                             <td>{{$f->nombres}}</td>
                                             <td>{{$f->nombre}}</td>
+											<td>{{$f->motivoPorInasistencias}}</td>
 										</tr>
 									@endforeach
 								</tbody>

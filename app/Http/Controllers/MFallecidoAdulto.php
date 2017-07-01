@@ -66,7 +66,7 @@ class MFallecidoAdulto extends Controller
         $adultos = DB::table('bitacoraadultomayor')
             ->join('beneficiario', 'beneficiario.id' , '=', 'bitacoraadultomayor.Beneficiario_id')
             ->join('bono', 'bitacoraadultomayor.id' , '=', 'bono.BitacoraAdultoMayor_id')
-            ->select('beneficiario.codigo', 'beneficiario.nombre','beneficiario.apellidos')
+            ->select('beneficiario.codigo', 'beneficiario.nombres','beneficiario.apellidos')
             ->where('beneficiario.TipoEstado_id', 1) // se pone 1 para la consulta necesaria 
             ->where('beneficiario.TipoBono_id', 3)
             ->whereDate('bono.fechaInicioPeriodo', '<=', $request->fechaInicio)
@@ -143,7 +143,7 @@ class MFallecidoAdulto extends Controller
         $adultos = DB::table('bitacoraadultomayor')
             ->join('beneficiario', 'beneficiario.id' , '=', 'bitacoraadultomayor.Beneficiario_id')
             ->join('bono', 'bitacoraadultomayor.id' , '=', 'bono.BitacoraAdultoMayor_id')
-            ->select('beneficiario.codigo', 'beneficiario.nombre','beneficiario.apellidos')
+            ->select('beneficiario.codigo', 'beneficiario.nombres','beneficiario.apellidos')
             ->where('beneficiario.TipoEstado_id', 1) // se pone 1 para la consulta necesaria 
             ->where('beneficiario.TipoBono_id', 3)
             ->whereDate('bono.fechaInicioPeriodo', '<=', $request->fecha_inicio)

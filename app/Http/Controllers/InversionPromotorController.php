@@ -259,7 +259,7 @@ try{
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($view);
      
-        return $pdf->download("Reporte Inversion Salud.pdf");
+        return $pdf->download("Reporte Inversion Promotores.pdf");
  }
 
 }

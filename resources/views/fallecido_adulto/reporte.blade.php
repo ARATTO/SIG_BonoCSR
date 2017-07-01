@@ -93,7 +93,7 @@
 									@foreach($adultos as $adu)
 									<tr>
 										<td>{{$adu->codigo}}</td>
-										<td>{{$adu->nombre}}</td>
+										<td>{{$adu->nombres}}</td>
 										<td>{{$adu->apellidos}}</td>
 									</tr>
 									@endforeach
