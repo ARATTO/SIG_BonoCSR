@@ -8,8 +8,8 @@
                     <a href="#"><i class='fa fa-link'></i> <span>{{ trans('REPORTES GERENCIALES') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
                          <li><a href="{{route('tit_genero')}}">Titulares divididos por Genero.</a></li>
-                        <li><a href="#">Titulares de niños y embarazadas.</a></li>
-                        <li><a href="#">Titulares de adulto mayor.</a></li>
+                        <li><a href="{{route('tit_ne')}}">Titulares de niños y embarazadas.</a></li>
+                        <li><a href="{{route('tit_adulto')}}">Titulares de adulto mayor.</a></li>
                         <li><a href="{{route('seleccionarDatos')}}">{{ trans('Inversion total, Salud') }}</a></li>
                         <li><a href="{{route('inversionAdulto')}}">Inversion total, Adulto Mayor.</a></li>
                         <li><a href="{{route('inversionPromotor')}}">Dinero invertido en promotores</a></li>

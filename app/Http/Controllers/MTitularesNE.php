@@ -94,7 +94,7 @@ class MTitularesNE extends Controller
         $total = $cuantas_embarazadas + $cuantos_ninos;
 
         if($total <= 0){
-            Flash::info("No hay Titulares asociados a este Canton con Bonos en Salud.");
+            Flash::info("No hay Titulares asociados a este Canton con esos parametros.");
             return redirect()->route('tit_ne');
         }
 
@@ -153,5 +153,22 @@ class MTitularesNE extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function crearPDF(Request $request){
+        $view = \View::make('tit_ne.reporte')
+        ->with('canton',$request->canton)
+        ->with('embarazadas',$request->embarazadas)
+        ->with('ninos',$request->ninos)
+        ->with('total',$request->total)
+        ->with('cantidad',$request->cantidad)
+        ->with('fecha_inicio',$request->fecha_inicio)
+        ->with('fecha_fin',$request->fecha_fin)
+        ->render();
+
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        
+        return $pdf->download("Reporte Titulares Bono Salud en Canton $request->canton.pdf");
     }
 }
