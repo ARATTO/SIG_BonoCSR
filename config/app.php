@@ -176,6 +176,10 @@ return [
         'Maatwebsite\Excel\ExcelServiceProvider',
         /*Paquete para la importacion de archivos de excel*/
 
+        /*paquete para generar reportes*/
+        Barryvdh\DomPDF\ServiceProvider::class,
+        /*paquete para generar reportes*/
+
     ],
 
     /*
@@ -234,6 +238,10 @@ return [
         /*Paquete excel*/
         'Excel' => 'Maatwebsite\Excel\Facades\Excel',
         /*Paquete excel*/
+
+        /*Paquete para generar reportes*/
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+        /*Paquete para generar reportes*/
     ],
 
 ];

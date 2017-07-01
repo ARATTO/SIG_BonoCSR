@@ -24,6 +24,7 @@
 					<div class="panel-body">
 						@include('bones-flash::bones.flash')
 						@include('layouts.partials.flash')
+				{!! Form::open(['action' => 'MFallecidoAdulto@crearPDF']) !!}
 				 <div class="col-md-10 col-md-offset-1">
 					<div class="input-group has-info form-inline">
              
@@ -63,7 +64,16 @@
 						
 						
 					</div>
+
+					<div class="form-group form-inline">
+						<h3><span class="label label-danger">Generar PDF</span><h3>
+						<button id="guardar" type="submit" class="btn btn-success btn-lg">Descargar PDF</button>
+					</div>   
+					<input type="hidden" name="canton" value="{{$canton->id}}">  
+					<input type="hidden" name="fecha_inicio" value="{{$fecha_inicio}}">
+					<input type="hidden" name="fecha_fin" value="{{$fecha_fin}}">
 				</div>
+				{!!Form::close()!!}	
 			</div>
 		</div>
 	</div>

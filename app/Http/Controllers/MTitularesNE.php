@@ -154,4 +154,21 @@ class MTitularesNE extends Controller
     {
         //
     }
+
+    public function crearPDF(Request $request){
+        $view = \View::make('tit_ne.reporte')
+        ->with('canton',$request->canton)
+        ->with('embarazadas',$request->embarazadas)
+        ->with('ninos',$request->ninos)
+        ->with('total',$request->total)
+        ->with('cantidad',$request->cantidad)
+        ->with('fecha_inicio',$request->fecha_inicio)
+        ->with('fecha_fin',$request->fecha_fin)
+        ->render();
+
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        
+        return $pdf->download("Reporte Titulares Bono Salud en Canton $request->canton.pdf");
+    }
 }

@@ -24,6 +24,7 @@
 					<div class="panel-body">
 						@include('bones-flash::bones.flash')
 						@include('layouts.partials.flash')
+				{!! Form::open(['action' => 'MTitularesGenero@crearPDF']) !!}		
 				 <div class="col-md-10 col-md-offset-1">
 					<div class="input-group has-info form-inline">
              
@@ -36,7 +37,7 @@
                             <input class="form-control" type="text"  value="{{$edad_fin}}" disabled="true">
 
                             <span class="input-group-addon">Canton</span>
-                            <input class="form-control" type="text" value="{{$canton}}" disabled="true">
+                            <input class="form-control" type="text" value="{{$canton->nombre}}" disabled="true">
 
                       
                     </div>	
@@ -62,7 +63,20 @@
 						
 						
 					</div>
+					<div class="form-group form-inline">
+						<h3><span class="label label-danger">Generar PDF</span><h3>
+						<button id="guardar" type="submit" class="btn btn-success btn-lg">Descargar PDF</button>
+					</div>   
+
+					<div>
+						<input type="hidden" name="canton" value="{{$canton->nombre}}">  
+						<input type="hidden" name="hombre" value="{{$hombre}}">
+						<input type="hidden" name="mujer" value="{{$mujer}}">
+						<input type="hidden" name="edad_inicio" value="{{$edad_inicio}}">
+						<input type="hidden" name="edad_fin" value="{{$edad_fin}}">
+					</div>
 				</div>
+				{!!Form::close()!!}	
 			</div>
 		</div>
 	</div>

@@ -54,7 +54,10 @@ Route::get('/admin', 'HomeController@index');
         Route::get('/tit_genero_resultado', function () {
           return view('tit_genero.resultado');
         });
-        
+        Route::post('tit_genero_reporte',[
+          'uses' => 'MTitularesGenero@crearPDF',
+          'as' => 'tit_genero_reporte'
+        ]);
         /*
         * Fin Rutas para Titulares por Genero y Edad
         */
@@ -73,7 +76,10 @@ Route::get('/admin', 'HomeController@index');
         Route::get('/tit_adulto_resultado', function () {
           return view('tit_adulto.resultado');
         });
-        
+        Route::post('tit_adulto_reporte',[
+          'uses' => 'MTitularesAdulto@crearPDF',
+          'as' => 'tit_adulto_reporte'
+        ]);
         /*
         * Fin Rutas para Titulares Adulto
         */
@@ -92,7 +98,10 @@ Route::get('/admin', 'HomeController@index');
         Route::get('/tit_ne_resultado', function () {
           return view('tit_ne.resultado');
         });
-        
+        Route::post('tit_ne_reporte',[
+          'uses' => 'MTitularesNE@crearPDF',
+          'as' => 'tit_ne_reporte'
+        ]);
         /*
         * Fin Rutas para Titulares Niños y Embarazada
         */
@@ -111,7 +120,10 @@ Route::get('/admin', 'HomeController@index');
         Route::get('/fallecido_adulto_resultado', function () {
           return view('fallecido_adulto.resultado');
         });
-        
+        Route::post('fallecido_adulto_reporte',[
+          'uses' => 'MFallecidoAdulto@crearPDF',
+          'as' => 'fallecido_adulto_reporte'
+        ]);
         /*
         * Fin Rutas para Fallecido Adulto
         */

@@ -137,4 +137,19 @@ class MTitularesAdulto extends Controller
     {
         //
     }
+
+    public function crearPDF(Request $request){
+        $view = \View::make('tit_adulto.reporte')
+        ->with('canton',$request->canton)
+        ->with('adultos',$request->adultos)
+        ->with('cantidad',$request->cantidad)
+        ->with('fecha_inicio',$request->fecha_inicio)
+        ->with('fecha_fin',$request->fecha_fin)
+        ->render();
+
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        
+        return $pdf->download("Reporte Titulares Adulto Mayor en Canton $request->canton.pdf");
+    }
 }

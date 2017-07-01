@@ -61,7 +61,7 @@ class MTitularesGenero extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
-        $canton = $request->canton;
+        $canton = Canton::find($request->canton);
         $hombre = 0;
         $mujer = 0;
         $edad_inicio = $request->edad_inicio;
@@ -70,7 +70,7 @@ class MTitularesGenero extends Controller
         $titular = DB::table('titular')
             ->join('beneficiario', 'beneficiario.Titular_id', '=', 'titular.id')
             ->select('titular.genero','titular.fechaNacimiento')
-            ->where('beneficiario.Canton_id', $canton)
+            ->where('beneficiario.Canton_id', $canton->id)
             ->distinct()
             ->get();
         //dd(count($titular));
@@ -152,5 +152,20 @@ class MTitularesGenero extends Controller
         $dias = mktime(0,0,0,$dias[2],$dias[1],$dias[0]);
         $edad = (int)((time()-$dias)/31556926 );
         return $edad;
+    }
+
+    public function crearPDF(Request $request){
+        $view = \View::make('tit_genero.reporte')
+        ->with('canton',$request->canton)
+        ->with('hombre',$request->hombre)
+        ->with('mujer',$request->mujer)
+        ->with('edad_inicio',$request->edad_inicio)
+        ->with('edad_fin',$request->edad_fin)
+        ->render();
+     
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+     
+        return $pdf->download("Reporte Titulares por Genero en Canton $request->canton.pdf");
     }
 }

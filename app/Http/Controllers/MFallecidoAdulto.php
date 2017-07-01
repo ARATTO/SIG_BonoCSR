@@ -14,6 +14,7 @@ use App\Beneficiario;
 use App\Titular;
 use DateTime;
 use DB;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class MFallecidoAdulto extends Controller
 {
@@ -133,5 +134,43 @@ class MFallecidoAdulto extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function crearPDF(Request $request){
+        //dd($request->all());
+        $canton = Canton::find($request->canton);
+
+        $adultos = DB::table('bitacoraadultomayor')
+            ->join('beneficiario', 'beneficiario.id' , '=', 'bitacoraadultomayor.Beneficiario_id')
+            ->join('bono', 'bitacoraadultomayor.id' , '=', 'bono.BitacoraAdultoMayor_id')
+            ->select('beneficiario.codigo', 'beneficiario.nombre','beneficiario.apellidos')
+            ->where('beneficiario.TipoEstado_id', 1) // se pone 1 para la consulta necesaria 
+            ->where('beneficiario.TipoBono_id', 3)
+            ->whereDate('bono.fechaInicioPeriodo', '<=', $request->fecha_inicio)
+            ->whereDate('bono.fechaFinPeriodo', '>=', $request->fecha_fin)
+            ->distinct()
+            ->get();
+        
+        //dd($adultos);
+        $cuantos_adultos = count($adultos);
+
+        if( $cuantos_adultos <= 0){
+            Flash::info("No hay Adultos Mayores asociados a este Canton con esos parametros.");
+            return redirect()->route('fallecido_adulto');
+        }
+ 
+
+        $view = \View::make('fallecido_adulto.reporte')
+        ->with('adultos',$adultos)
+        ->with('cantidad',$cuantos_adultos)
+        ->with('canton',$canton)
+        ->with('fecha_inicio',$request->fecha_inicio)
+        ->with('fecha_fin',$request->fecha_fin)
+        ->render();
+        //dd($view);
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        
+        return $pdf->download("Reporte Fallecidos Bono Adulto Mayor en Canton $canton->nombre.pdf");
     }
 }
